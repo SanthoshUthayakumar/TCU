@@ -12,7 +12,7 @@ export const company = {
 
 export const about = {
   heading: "Turning Moments Into Cinematic Art",
-  body: "Born from a passion for visual storytelling, TCU has been crafting scroll-stopping content for brands, creators, and businesses since 2021. Every frame is composed with intention. Every edit is built for impact.",
+  body: "Born from a passion for visual storytelling, TCU has been crafting scroll-stopping content for brands, creators, and businesses since 2024. Every frame is composed with intention. Every edit is built for impact.",
   bullets: [
     "2+ years of experience in professional mobile videography",
     "Expert in Instagram Reels, YouTube Shorts & cinematic editing",
