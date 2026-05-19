@@ -34,7 +34,7 @@ function Loader() {
 
       <div className="loader-percentage">{progress}%</div>
 
-      <p className="loader-text">Loading Creative Experience...</p>
+      <p className="loader-text">TCU ungalai Anbudan varavaikirathu</p>
     </div>
   );
 }
