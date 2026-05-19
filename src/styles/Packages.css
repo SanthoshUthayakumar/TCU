@@ -1,0 +1,263 @@
+.packages {
+  padding: 120px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.packages::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 107, 0, 0.3) 50%, transparent 100%);
+}
+
+.packages-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,107,0,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.packages-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.packages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.packages-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.packages-title span {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.packages-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white-60);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.packages-swiper {
+  padding-bottom: 3.5rem !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+.pkg-card {
+  background: linear-gradient(160deg, rgba(25, 25, 25, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.pkg-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.06) 0%, transparent 50%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.pkg-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 107, 0, 0.25);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(255, 107, 0, 0.1);
+}
+
+.pkg-card:hover::before {
+  opacity: 1;
+}
+
+.pkg-card-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.pkg-card:hover .pkg-card-glow {
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.2) 0%, transparent 70%);
+}
+
+.pkg-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(255,107,0,0.12), rgba(255,179,71,0.08));
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.pkg-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.pkg-description {
+  font-size: 0.85rem;
+  color: var(--white-60);
+  line-height: 1.65;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.pkg-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.pkg-price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--white-30);
+}
+
+.pkg-price-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.pkg-price-suffix {
+  font-size: 0.75rem;
+  color: var(--white-30);
+}
+
+.pkg-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.pkg-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.pkg-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.82rem;
+  color: var(--white-60);
+}
+
+.pkg-check {
+  color: var(--amber);
+  font-size: 0.7rem;
+  min-width: 14px;
+}
+
+.pkg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  border-radius: 50px;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  width: 100%;
+}
+
+.pkg-btn:hover {
+  background: var(--gradient);
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 4px 24px rgba(255, 107, 0, 0.3);
+}
+
+/* Swiper custom styles */
+.packages-swiper .swiper-pagination-bullet {
+  background: var(--white-30);
+  opacity: 1;
+  width: 6px;
+  height: 6px;
+}
+
+.packages-swiper .swiper-pagination-bullet-active {
+  background: var(--gradient);
+  width: 24px;
+  border-radius: 3px;
+}
+
+.packages-swiper .swiper-button-next,
+.packages-swiper .swiper-button-prev {
+  color: var(--white-60);
+  transition: color var(--transition);
+}
+
+.packages-swiper .swiper-button-next:hover,
+.packages-swiper .swiper-button-prev:hover {
+  color: var(--gold);
+}
+
+.packages-swiper .swiper-button-next::after,
+.packages-swiper .swiper-button-prev::after {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .packages { padding: 80px 1.25rem; }
+}
