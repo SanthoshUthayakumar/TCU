@@ -6,6 +6,8 @@ import Packages from './components/Packages.js';
 import Contact from './components/Contact.js';
 import Footer from './components/Footer.js';
 import Loader from './components/Loader.js';
+import Services from './components/Services.js';
+import Work from './components/Works.js';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,7 +35,12 @@ function App() {
         <section id="home">
           <Hero />
         </section>
-
+        <section id ="services">
+          <Services/>
+        </section>
+        <section id="Works">
+          <Work/>
+        </section>
         <section id="about">
           <About />
         </section>

@@ -5,9 +5,12 @@ import '../styles/Navbar.css'
 import logo from "./logo.png";
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Services', href:'#services'},
+  { label: 'Works', href:'#Works'},
   { label: 'About', href: '#about' },
   { label: 'Packages', href: '#packages' },
   { label: 'Contact', href: '#contact' },
+  
 ]
 
 function Navbar() {
@@ -18,7 +21,7 @@ function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30)
-      const sections = ['home', 'about', 'packages', 'contact']
+      const sections = ['home','services','Works', 'about', 'packages', 'contact']
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i])
         if (el && window.scrollY >= el.offsetTop - 120) {

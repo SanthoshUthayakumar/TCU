@@ -1,0 +1,294 @@
+.works {
+  padding: 6rem 1.5rem;
+  background-color: var(--color-primary, #111111);
+  color: var(--color-secondary, #ffffff);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden;
+}
+
+.works-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.works-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.works-label {
+  color: var(--color-accent, #FF5C35);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.works-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.accent-text {
+  color: var(--color-accent, #FF5C35);
+}
+
+.works-subtitle {
+  color: var(--color-text-muted, #888888);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ---- Filters ---- */
+.works-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.works-filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.works-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.works-filter-btn.active {
+  background: var(--color-accent, #FF5C35);
+  border-color: var(--color-accent, #FF5C35);
+  color: #ffffff;
+}
+
+/* ---- Grid ---- */
+.works-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+/* ---- Card ---- */
+.works-card {
+  position: relative;
+  border-radius: var(--radius-xl, 28px);
+  overflow: hidden;
+  min-height: 220px;
+  background: var(--color-card-bg, #161616);
+  border: 1px solid var(--color-card-border, rgba(255, 255, 255, 0.06));
+  transform: translateZ(0);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.works-card:hover {
+  border-color: rgba(255, 92, 53, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 92, 53, 0.06);
+}
+
+.works-card--playing {
+  border-color: var(--color-accent, #FF5C35);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 92, 53, 0.12);
+}
+
+/* ---- Card Gradient Background ---- */
+.works-card-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.works-card:hover .works-card-bg {
+  transform: scale(1.05);
+}
+
+/* Dim gradient when video is playing so canvas is visible */
+.works-card--playing .works-card-bg {
+  opacity: 0.25;
+}
+
+/* ---- Image Card ---- */
+.works-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.works-card:hover .works-card-image {
+  transform: scale(1.05);
+}
+
+/* ---- Video Card ---- */
+.works-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+}
+
+/* ---- Canvas (video playback simulation) ---- */
+.works-card-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* ---- Play / Pause Button ---- */
+.works-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.4rem;
+  z-index: 5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.works-play-btn:hover {
+  background: var(--color-accent, #FF5C35);
+  border-color: var(--color-accent, #FF5C35);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* When playing: smaller button, top-right corner */
+.works-play-btn--playing {
+  top: 16px;
+  left: auto;
+  right: 16px;
+  transform: none;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.works-play-btn--playing:hover {
+  transform: scale(1.1);
+  background: var(--color-accent, #FF5C35);
+}
+
+/* ---- Card Info Overlay ---- */
+.works-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  z-index: 4;
+  transition: opacity 0.4s ease;
+}
+
+/* Hide overlay text when video is playing */
+.works-card-overlay--dim {
+  opacity: 0.35;
+}
+
+.works-card-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent, #FF5C35);
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.works-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem 0;
+  color: #fff;
+}
+
+.works-card-client {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- Responsive Grid ---- */
+@media (min-width: 425px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .works-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 260px;
+  }
+
+  .works-card {
+    min-height: unset;
+  }
+
+  .works-card--large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .works-card--wide {
+    grid-column: span 2;
+  }
+
+  .works-card--tall {
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .works-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .works-card-title {
+    font-size: 1.25rem;
+  }
+
+  .works-play-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+  }
+}

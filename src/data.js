@@ -1,6 +1,6 @@
 export const company = {
   name: "FramedByLens",
-  tagline: "Professional mobile videography and cinematic Instagram reel editing for brands, events, and creators.",
+  tagline: "Cinematic Mobile Videography • Instagram Reel Editing • Social Media Management • Celebrity Management • PR Services",
   description:
     "We craft visual stories that stop the scroll. Specializing in cinematic mobile videography, premium reel editing, and brand storytelling that converts.",
   whatsapp: "917305664736",
