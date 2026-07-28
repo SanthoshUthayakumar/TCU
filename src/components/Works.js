@@ -1,8 +1,7 @@
-
 import '../styles/Works.css';
 import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { FiPlay, FiPause } from 'react-icons/fi';
+import { FiPlay, FiPause, FiVolume2, FiVolumeX } from 'react-icons/fi';
 import img1 from '../assets/images/works/img1.png';
 import img2 from '../assets/images/works/img2.png';
 import img3 from '../assets/images/works/img3.png';
@@ -11,7 +10,6 @@ import img4 from '../assets/images/works/img4.png';
 import vid1 from '../assets/videos/vid1.mp4';
 import vid2 from '../assets/videos/vid2.mp4';
 import vid3 from '../assets/videos/vid3.mp4';
-import { image } from 'framer-motion/client';
 /*
  * ──────────────────────────────────────────────
  *  HOW TO ADD YOUR OWN VIDEOS & IMAGES
@@ -134,6 +132,7 @@ const categories = ['All', 'SUNOSHINI', 'BK Catering', 'Social Media'];
 /* ── Single Work Card ── */
 const WorkCard = ({ project, index }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
   const handlePlay = (e) => {
@@ -150,6 +149,15 @@ const WorkCard = ({ project, index }) => {
     }
   };
 
+  const handleMuteToggle = (e) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
   const handleVideoEnd = () => {
     setIsPlaying(false);
   };
@@ -164,10 +172,8 @@ const WorkCard = ({ project, index }) => {
       className={`works-card works-card--${project.size} ${isPlaying ? 'works-card--playing' : ''}`}
       aria-label={`${project.title} by ${project.client}`}
     >
-      {/* Gradient fallback (shows until you add real files) */}
       <div className="works-card-bg" style={{ background: project.gradient }} />
 
-      {/* ── VIDEO CARD ── */}
       {project.type === 'video' && (
         <>
           {project.video && (
@@ -175,7 +181,7 @@ const WorkCard = ({ project, index }) => {
               ref={videoRef}
               className="works-card-video"
               src={project.video}
-              muted
+              muted={isMuted}
               loop
               playsInline
               preload="metadata"
@@ -183,17 +189,26 @@ const WorkCard = ({ project, index }) => {
             />
           )}
 
-          <button
-            className={`works-play-btn ${isPlaying ? 'works-play-btn--playing' : ''}`}
-            onClick={handlePlay}
-            aria-label={isPlaying ? 'Pause video' : 'Play video'}
-          >
-            {isPlaying ? <FiPause /> : <FiPlay />}
-          </button>
+          <div className="works-video-controls">
+            <button
+              className={`works-play-btn ${isPlaying ? 'works-play-btn--playing' : ''}`}
+              onClick={handlePlay}
+              aria-label={isPlaying ? 'Pause video' : 'Play video'}
+            >
+              {isPlaying ? <FiPause /> : <FiPlay />}
+            </button>
+
+            <button
+              className="works-mute-btn"
+              onClick={handleMuteToggle}
+              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            >
+              {isMuted ? <FiVolumeX /> : <FiVolume2 />}
+            </button>
+          </div>
         </>
       )}
 
-      {/* ── IMAGE CARD ── */}
       {project.type === 'image' && project.image && (
         <img
           className="works-card-image"
@@ -203,7 +218,6 @@ const WorkCard = ({ project, index }) => {
         />
       )}
 
-      {/* Card info */}
       <div className={`works-card-overlay ${isPlaying ? 'works-card-overlay--dim' : ''}`}>
         <span className="works-card-category">{project.category}</span>
         <h3 className="works-card-title">{project.title}</h3>
@@ -271,4 +285,3 @@ const Works = () => {
 };
 
 export default Works;
-
