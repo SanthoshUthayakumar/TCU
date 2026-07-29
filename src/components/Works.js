@@ -14,7 +14,7 @@ import vid3 from '../assets/videos/vid3.mp4';
 import vid4 from '../assets/videos/vid4.mp4';
 import vid6 from '../assets/videos/vid6.mp4';
 import vid5 from '../assets/videos/vid5.mp4';
-import vid7 from '../assets/videos/vid7.mp4';
+//import vid7 from '../assets/videos/vid7.mp4';
 
 // ../assets/videos/IMG_8422.jpg
 // import instagramVideo from '../../assets/videos/instagram-campaign.mp4';
@@ -138,7 +138,7 @@ const projects = [
     gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
     size: 'tall',
   },
-  {
+  /*{
     id: 12,
     title: 'Haldi Function Edit',
     client: '',
@@ -147,7 +147,7 @@ const projects = [
     video: vid7,            // ← replace null with: socialReelVideo
     gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
     size: 'tall',
-  },
+  },*/
   {
     id: 12,
     title: 'Photo Edits',
