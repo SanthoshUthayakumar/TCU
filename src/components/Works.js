@@ -7,9 +7,14 @@ import img2 from '../assets/images/works/img2.png';
 import img3 from '../assets/images/works/img3.png';
 import img5 from '../assets/images/works/img5.png';
 import img4 from '../assets/images/works/img4.png';
+import img6 from '../assets/images/works/img6.png';
 import vid1 from '../assets/videos/vid1.mp4';
 import vid2 from '../assets/videos/vid2.mp4';
 import vid3 from '../assets/videos/vid3.mp4';
+import vid4 from '../assets/videos/vid4.mp4';
+import vid6 from '../assets/videos/vid6.mp4';
+import vid5 from '../assets/videos/vid5.mp4';
+import vid7 from '../assets/videos/vid7.mp4';
 /*
  * ──────────────────────────────────────────────
  *  HOW TO ADD YOUR OWN VIDEOS & IMAGES
@@ -107,11 +112,11 @@ const projects = [
   },
   {
     id: 8,
-    title: 'Social Media Reel',
-    client: 'StreetBites',
-    category: 'Social Media',
+    title: 'Wedding Edit',
+    client: '',
+    category: 'Events',
     type: 'video',
-    video: null,            // ← replace null with: socialReelVideo
+    video: vid6,            // ← replace null with: socialReelVideo
     gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
     size: 'wide',
   },
@@ -125,9 +130,49 @@ const projects = [
     gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
     size: 'tall',
   },
+  {
+    id: 10,
+    title: 'Birthday Edit',
+    client: '',
+    category: 'Events',
+    type: 'video',
+    video: vid4,            // ← replace null with: socialReelVideo
+    gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
+    size: 'tall',
+  },
+  {
+    id: 11,
+    title: 'Candid Edit',
+    client: '',
+    category: 'Social Media',
+    type: 'video',
+    video: vid5,            // ← replace null with: socialReelVideo
+    gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
+    size: 'tall',
+  },
+  {
+    id: 12,
+    title: 'Haldi Function Edit',
+    client: '',
+    category: 'Events',
+    type: 'video',
+    video: vid7,            // ← replace null with: socialReelVideo
+    gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
+    size: 'tall',
+  },
+  {
+    id: 12,
+    title: 'Photo Edits',
+    client: '',
+    category: 'Social Media',
+    type: 'image',
+    image: img6,            // ← replace null with: socialReelVideo
+    gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)',
+    size: 'normal',
+  },
 ];
 
-const categories = ['All', 'SUNOSHINI', 'BK Catering', 'Social Media'];
+const categories = ['All', 'SUNOSHINI', 'BK Catering', 'Social Media','Events'];
 
 /* ── Single Work Card ── */
 const WorkCard = ({ project, index }) => {
