@@ -15,19 +15,7 @@ import vid4 from '../assets/videos/vid4.mp4';
 import vid6 from '../assets/videos/vid6.mp4';
 import vid5 from '../assets/videos/vid5.mp4';
 import vid7 from '../assets/videos/vid7.mp4';
-/*
- * ──────────────────────────────────────────────
- *  HOW TO ADD YOUR OWN VIDEOS & IMAGES
- * ──────────────────────────────────────────────
- *  Videos → place in:  src/assets/videos/
- *  Images → place in:  src/assets/images/works/
- *
- *  Then import them below and assign to the
- *  matching project in the array.
- * ──────────────────────────────────────────────
- */
 
-/* ── Import your videos here ── */
 // ../assets/videos/IMG_8422.jpg
 // import instagramVideo from '../../assets/videos/instagram-campaign.mp4';
 // import corporateGalaVideo from '../../assets/videos/corporate-gala.mp4';
