@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { FaWhatsapp, FaInstagram, FaYoutube, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import { contactLinks, company } from '../data.js'
 import '../styles/Contact.css'
+import { SiGoogleforms } from 'react-icons/si';
 
 const iconMap = {
   whatsapp: FaWhatsapp,
@@ -10,6 +11,7 @@ const iconMap = {
   youtube: FaYoutube,
   facebook: FaFacebook,
   email: FaEnvelope,
+  form:SiGoogleforms,
 }
 
 function Contact() {

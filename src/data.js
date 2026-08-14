@@ -129,4 +129,11 @@ export const contactLinks = [
     icon: "email",
     color: "#FF8C00",
   },
+  {
+    label: "Form",
+    value: "Fill It Up",
+    url: "https://forms.gle/vydvFyKAkJbkL3s69",
+    icon: "form",
+    color: "#ff4800",
+  },
 ];
