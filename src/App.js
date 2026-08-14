@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar.js';
 import Hero from './components/Hero.js';
 import About from './components/About.js';
@@ -15,16 +16,8 @@ import PrWork from './components/PrWork.js';
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   if (loading) {
-    return <Loader />;
+    return <Loader onFinish={() => setLoading(false)} />;
   }
 
   return (
@@ -40,26 +33,39 @@ function App() {
                 <section id="home">
                   <Hero />
                 </section>
+
                 <section id="services">
                   <Services />
                 </section>
+
                 <section id="Works">
                   <Work />
                 </section>
+
                 <section id="about">
                   <About />
                 </section>
+
                 <section id="packages">
                   <Packages />
                 </section>
+
                 <section id="contact">
                   <Contact />
                 </section>
               </>
             }
           />
-          <Route path="/videography" element={<Videography />} />
-          <Route path="/pr-work" element={<PrWork />} />
+
+          <Route
+            path="/videography"
+            element={<Videography />}
+          />
+
+          <Route
+            path="/pr-work"
+            element={<PrWork />}
+          />
         </Routes>
       </main>
 

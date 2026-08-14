@@ -127,7 +127,7 @@ const Videography = () => {
           <h1 className="videography-title">
             Videography <span className="accent-text">Showcase</span>
           </h1>
-          <p className="videography-subtitle">Every shoot, edit, and reel — in motion.</p>
+          <p className="videography-subtitle"></p>
         </motion.div>
 
         <motion.div

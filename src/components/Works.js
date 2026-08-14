@@ -9,6 +9,8 @@ import img3 from '../assets/images/works/img3.png';
 import img4 from '../assets/images/works/img4.png';
 import img5 from '../assets/images/works/img5.png';
 import img6 from '../assets/images/works/img6.png';
+import videographyImg from '../assets/images/works/logo1.jpeg';
+import prWorkImg from '../assets/images/works/thumb.webp';
 
 const projects = [
   {
@@ -128,29 +130,53 @@ const Works = () => {
         
 
         <motion.div
-          className="works-page-links"
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Link to="/videography" className="works-page-link">
-            <span>🎬</span>
-            <div>
-              <strong>Videography</strong>
-              <small>View all videos & shoots</small>
-            </div>
-            <FiArrowRight />
-          </Link>
+  className="works-page-links"
+  initial={{ opacity: 0, y: 20 }}
+  animate={
+    headerInView
+      ? { opacity: 1, y: 0 }
+      : { opacity: 0, y: 20 }
+  }
+  transition={{ duration: 0.6, delay: 0.4 }}
+>
+  <Link
+    to="/videography"
+    className="works-page-link"
+    style={{
+      backgroundImage: `url(${videographyImg})`,
+    }}
+  >
+    <div className="works-page-overlay"></div>
 
-          <Link to="/pr-work" className="works-page-link">
-            <span>📢</span>
-            <div>
-              <strong>PR Work</strong>
-              <small>View PR campaigns & events</small>
-            </div>
-            <FiArrowRight />
-          </Link>
-        </motion.div>
+    <span>🎬</span>
+
+    <div className="works-page-link-content">
+      <strong>Videography</strong>
+      <small>View all videos & shoots</small>
+    </div>
+
+    <FiArrowRight />
+  </Link>
+
+  <Link
+    to="/pr-work"
+    className="works-page-link"
+    style={{
+      backgroundImage: `url(${prWorkImg})`,
+    }}
+  >
+    <div className="works-page-overlay"></div>
+
+    <span>📢</span>
+
+    <div className="works-page-link-content">
+      <strong>PR Work</strong>
+      <small>View PR campaigns & events</small>
+    </div>
+
+    <FiArrowRight />
+  </Link>
+</motion.div>
 
       </div>
     </section>

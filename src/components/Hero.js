@@ -39,9 +39,9 @@ function Hero() {
             Premium Visual Storytelling
           </motion.div>
 
-          <motion.div {...fadeUp(0.2)} className="hero-badge">
+          {/*<motion.div {...fadeUp(0.2)} className="hero-badge">
             Available for bookings
-          </motion.div>
+          </motion.div>*/}
 
           <motion.h1 {...fadeUp(0.3)} className="hero-title">
             TOM<br />

@@ -9,8 +9,12 @@ import img3 from '../assets/images/works/img3.png';
 import img4 from '../assets/images/works/img4.png';
 import img5 from '../assets/images/works/img5.png';
 import img6 from '../assets/images/works/img6.png';
+import nexa from '../assets/images/works/nexa.webp';
+import nexa1 from '../assets/images/works/nexa1.webp';
 
 const imageProjects = [
+  { id: 21, title: 'Brand Marketing', category: 'NEXA', image: nexa1, gradient: 'linear-gradient(135deg, #1e0a2e, #d946ef)', size: 'tall' },
+  { id: 20, title: 'Nexa', category: 'NEXA', image: nexa, gradient: 'linear-gradient(135deg, #0a1628, #2d6cdf)', size: 'normal' },
   { id: 2, title: 'Miss popular', category: 'SUNOSHINI', image: img2, gradient: 'linear-gradient(135deg, #0a1628, #2d6cdf)', size: 'tall' },
   { id: 3, title: 'WINNER', category: 'SUNOSHINI', image: img1, gradient: 'linear-gradient(135deg, #0a2818, #22c55e)', size: 'tall' },
   { id: 4, title: 'Instagram Campaign', category: 'SUNOSHINI', image: img3, gradient: 'linear-gradient(135deg, #2a1a0a, #f59e0b)', size: 'normal' },
@@ -19,7 +23,7 @@ const imageProjects = [
   { id: 12, title: 'Photo Edits', category: 'Social Media', image: img6, gradient: 'linear-gradient(135deg, #2e1a0a, #FF5C35)', size: 'normal' },
 ];
 
-const categories = ['All', 'SUNOSHINI', 'BK Catering', 'Social Media'];
+const categories = ['All', 'SUNOSHINI', 'BK Catering','NEXA', 'Social Media'];
 
 const ImageCard = React.forwardRef(({ project, index }, ref) => {
   return (
