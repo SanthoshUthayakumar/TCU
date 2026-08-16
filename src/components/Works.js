@@ -11,6 +11,8 @@ import img5 from '../assets/images/works/img5.png';
 import img6 from '../assets/images/works/img6.png';
 import videographyImg from '../assets/images/works/logo1.jpeg';
 import prWorkImg from '../assets/images/works/thumb.webp';
+import blackband from '../assets/images/works/blackband.jpg';
+import trapfitt from '../assets/images/works/trapfitt.png';
 
 const projects = [
   {
@@ -148,7 +150,7 @@ const Works = () => {
   >
     <div className="works-page-overlay"></div>
 
-    <span>🎬</span>
+    <span></span>
 
     <div className="works-page-link-content">
       <strong>Videography</strong>
@@ -167,7 +169,7 @@ const Works = () => {
   >
     <div className="works-page-overlay"></div>
 
-    <span>📢</span>
+    <span></span>
 
     <div className="works-page-link-content">
       <strong>PR Work</strong>
@@ -176,6 +178,46 @@ const Works = () => {
 
     <FiArrowRight />
   </Link>
+  <a
+  href="https://www.instagram.com/black_band19?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+  target="_blank"
+  rel="noopener noreferrer"
+  className="works-page-link"
+  style={{
+    backgroundImage: `url(${blackband})`,
+  }}
+>
+  <div className="works-page-overlay"></div>
+
+  <span></span>
+
+  <div className="works-page-link-content">
+    <strong>BLACK BAND</strong>
+    <small>Instagram</small>
+  </div>
+
+  <FiArrowRight />
+</a>
+<a
+  href="https://www.instagram.com/trapfitt_clothing/?utm_source=ig_web_button_share_sheet"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="works-page-link"
+  style={{
+    backgroundImage: `url(${trapfitt})`,
+  }}
+>
+  <div className="works-page-overlay"></div>
+
+  <span></span>
+
+  <div className="works-page-link-content">
+    <strong>TRAPFITT CLOTHING</strong>
+    <small>Instagram</small>
+  </div>
+
+  <FiArrowRight />
+</a>
 </motion.div>
 
       </div>

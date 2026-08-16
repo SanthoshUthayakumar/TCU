@@ -5,8 +5,8 @@ import '../styles/Navbar.css'
 import logo from "./logo.png";
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Services', href:'#services'},
   { label: 'Works', href:'#Works'},
+  { label: 'Services', href:'#services'},
   { label: 'About', href: '#about' },
   { label: 'Packages', href: '#packages' },
   { label: 'Contact', href: '#contact' },
