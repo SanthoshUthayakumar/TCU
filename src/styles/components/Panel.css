@@ -1,0 +1,5 @@
+.panel { position: relative; transform-origin: 50% 60%; }
+.panel__frame { position: relative; height: 100%; background: var(--paper); border: var(--border); box-shadow: var(--shadow); transition: transform var(--d2) var(--ease), box-shadow var(--d2) var(--ease); }
+@media (hover: hover) {
+  .panel--lift:hover .panel__frame { transform: translate(-3px, -3px); box-shadow: var(--shadow-lift); }
+}

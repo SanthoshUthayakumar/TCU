@@ -1,0 +1,7 @@
+.fcontact { position: fixed; z-index: var(--z-float); right: 12px; bottom: calc(var(--tab-h) + var(--safe-b) + 12px); display: flex; flex-direction: column; align-items: flex-end; gap: var(--s2); }
+.fcontact__btn { width: 56px; height: 56px; display: grid; place-items: center; background: var(--yellow); border: var(--border); box-shadow: var(--shadow-sm); }
+.fcontact__btn:active { transform: translate(3px, 3px); box-shadow: none; }
+.fcontact__btn.is-wiggle { animation: wiggle 700ms var(--ease); }
+.fcontact__list { display: grid; gap: var(--s1); justify-items: end; }
+.fcontact__item { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0.4rem 0.9rem; background: var(--paper); border: var(--border); box-shadow: var(--shadow-sm); font-family: var(--font-head); font-size: 0.8rem; text-transform: uppercase; text-decoration: none; }
+@media (min-width: 768px) { .fcontact { right: 24px; bottom: 24px; } }

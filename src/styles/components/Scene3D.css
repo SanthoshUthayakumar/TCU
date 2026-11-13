@@ -1,0 +1,3 @@
+/* Fixed 3D props behind the page. Sits under all content; faded so text stays readable. */
+.scene3d { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100lvh; z-index: -1; pointer-events: none; opacity: 0.55; }
+@media (max-width: 767px) { .scene3d { opacity: 0.45; } }

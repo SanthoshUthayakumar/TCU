@@ -1,0 +1,73 @@
+:root {
+  /* Palette */
+  --paper: #f3eee2;
+  --ink: #111111;
+  --newsprint: #e4ddcb;
+  --yellow: #ffd21f;
+  --red: #e5322d;
+  --halftone: rgba(17, 17, 17, 0.12);
+
+  /* Type */
+  --font-sfx: 'Bangers', Impact, 'Arial Narrow', sans-serif;
+  --font-head: 'Archivo Black', 'Arial Black', Impact, sans-serif;
+  --font-body: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand: 'Patrick Hand', 'Comic Sans MS', cursive;
+  --fs-sfx: clamp(2.6rem, 8vw + 1rem, 6rem);
+  --fs-display: clamp(2.5rem, 9.5vw + 0.4rem, 7rem);
+  --fs-h2: clamp(1.9rem, 5.5vw + 0.4rem, 3.8rem);
+  --fs-h3: clamp(1.15rem, 1.8vw + 0.8rem, 1.7rem);
+  --fs-body: 1rem;
+  --fs-caption: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+  --fs-small: 0.875rem;
+  --measure: 60ch;
+
+  /* Line and shape */
+  --bw: 3px;
+  --border: 3px solid var(--ink);
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --shadow-lift: 9px 9px 0 var(--ink);
+  --tilt-max: 1.2deg;
+  --gutter-a: 12px;
+  --gutter-b: 16px;
+  --gutter-c: 20px;
+  --dot: 10px;
+
+  /* Space */
+  --s1: 0.5rem;
+  --s2: 0.75rem;
+  --s3: 1rem;
+  --s4: 1.5rem;
+  --s5: 2.5rem;
+  --s6: 4rem;
+  --s7: 6rem;
+  --page-pad: 14px;
+  --max: 1280px;
+
+  /* Chrome sizes */
+  --top-h: 56px;
+  --tab-h: 64px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+
+  /* Motion: one curve, three durations */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --d1: 150ms;
+  --d2: 300ms;
+  --d3: 600ms;
+
+  /* Layers */
+  --z-progress: 100;
+  --z-nav: 60;
+  --z-tab: 70;
+  --z-float: 65;
+  --z-menu: 80;
+  --z-modal: 120;
+  --z-cursor: 200;
+}
+
+@media (min-width: 768px) {
+  :root { --page-pad: 28px; --top-h: 68px; }
+}
+@media (min-width: 1024px) {
+  :root { --page-pad: 40px; --shadow: 8px 8px 0 var(--ink); }
+}

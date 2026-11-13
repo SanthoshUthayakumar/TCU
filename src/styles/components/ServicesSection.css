@@ -1,0 +1,24 @@
+.services { margin: var(--s5) 0; display: grid; gap: var(--s3); }
+.services__title { font-size: var(--fs-h2); }
+.services__grid { display: grid; gap: var(--gutter-c) var(--gutter-a); grid-template-columns: 1fr; padding-right: 8px; }
+.svc__btn { display: block; width: 100%; text-align: left; perspective: 1200px; }
+.svc__inner { display: grid; transform-style: preserve-3d; }
+.svc__face { grid-area: 1 / 1; display: flex; flex-direction: column; gap: var(--s2); min-height: 11rem; padding: var(--s3); backface-visibility: hidden; -webkit-backface-visibility: hidden; background: var(--paper); }
+.svc__face--front { background: var(--yellow); }
+.svc__face--back { transform: rotateY(180deg); background: var(--paper); }
+.svc__name { font-family: var(--font-head); text-transform: uppercase; font-size: var(--fs-h3); }
+.svc__line { max-width: 28ch; }
+.svc__flip { margin-top: auto; font-family: var(--font-hand); font-size: 1.05rem; }
+.svc__list { display: grid; gap: 6px; }
+.svc__item { padding-bottom: 4px; border-bottom: 3px dotted var(--ink); }
+.svc__btn.is-static .svc__inner { display: block; }
+.svc__btn.is-static .svc__face { min-height: 0; transform: none; backface-visibility: visible; }
+.svc__btn.is-static .svc__face--back { border-top: var(--border); }
+@media (min-width: 768px) {
+  .services__grid { grid-template-columns: repeat(6, 1fr); }
+  .services__grid > :nth-child(1) { grid-column: span 3; }
+  .services__grid > :nth-child(2) { grid-column: span 3; margin-top: 28px; }
+  .services__grid > :nth-child(3) { grid-column: span 2; }
+  .services__grid > :nth-child(4) { grid-column: span 2; margin-top: 18px; }
+  .services__grid > :nth-child(5) { grid-column: span 2; }
+}

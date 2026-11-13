@@ -1,0 +1,3 @@
+.notfound { position: relative; display: grid; gap: var(--s3); justify-items: start; padding: var(--s6) 0; }
+.notfound__sfx { right: 0; top: 0; }
+.notfound__actions { display: flex; flex-wrap: wrap; gap: var(--s3); }

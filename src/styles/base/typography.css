@@ -1,0 +1,24 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, var(--halftone) 1px, transparent 1.5px);
+  background-size: var(--dot) var(--dot);
+  padding-bottom: calc(var(--tab-h) + var(--safe-b));
+}
+h1, h2, h3, .head {
+  font-family: var(--font-head);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+h1 { font-size: var(--fs-display); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: var(--measure); }
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+}

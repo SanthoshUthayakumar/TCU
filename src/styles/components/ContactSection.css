@@ -1,0 +1,23 @@
+.contact { margin: var(--s5) 0; display: grid; gap: var(--s3); justify-items: start; }
+.contact__kicker { font-family: var(--font-hand); font-size: 1.4rem; padding: 2px 12px; background: var(--yellow); border: var(--border); transform: rotate(-1.5deg); }
+.contact__title { font-size: var(--fs-display); max-width: 12ch; }
+.contact--compact .contact__title { font-size: var(--fs-h2); max-width: 18ch; }
+.contact__direct { display: grid; gap: var(--s2); width: 100%; max-width: 30rem; }
+.contact__tel a { font-family: var(--font-hand); font-size: 1.2rem; }
+.contact__formwrap { width: 100%; max-width: 42rem; padding: var(--s4) var(--s3); border: var(--border); box-shadow: var(--shadow); background: var(--paper); margin-top: var(--s3); }
+.pages { display: flex; align-items: center; gap: 6px; margin-bottom: var(--s3); }
+.pages__sheet { width: 22px; height: 28px; border: var(--border); background: var(--paper); transition: background var(--d2) var(--ease), transform var(--d2) var(--ease); }
+.pages__sheet.is-done { background: var(--yellow); transform: rotate(-4deg); }
+.pages__text { margin-left: var(--s2); font-family: var(--font-hand); font-size: 1.1rem; }
+.form { display: grid; gap: var(--s4); }
+.field { position: relative; padding-top: 1.2rem; }
+.field__input { width: 100%; min-height: 48px; padding: 0.6rem 0.7rem; border: var(--border); border-radius: 0; background: #fff; appearance: none; font-size: 1rem; }
+textarea.field__input { resize: vertical; min-height: 8rem; }
+.field__label { position: absolute; left: 0.7rem; top: calc(1.2rem + 0.8rem); font-family: var(--font-hand); font-size: 1.1rem; pointer-events: none; transform-origin: 0 0; transition: transform var(--d2) var(--ease); }
+.field:focus-within .field__label, .field.is-filled .field__label, .field__input:not(:placeholder-shown) ~ .field__label { transform: translate(-0.7rem, -2.1rem) scale(0.9); }
+select.field__input { background-image: none; }
+.field.has-error .field__input { border-color: var(--ink); background: #fff3c4; animation: shake var(--d2) var(--ease) 1; }
+.field__error { margin-top: 4px; font-family: var(--font-hand); font-size: 1.05rem; padding: 0 6px; background: var(--yellow); border: 2px solid var(--ink); display: inline-block; }
+.form__actions { display: grid; gap: var(--s3); }
+.form__note, .form__status { font-family: var(--font-hand); font-size: 1.15rem; min-height: 1.4em; }
+@media (min-width: 768px) { .contact__direct { grid-template-columns: 1fr 1fr; max-width: 44rem; } .form__actions { grid-template-columns: 1fr 1fr; } .contact__formwrap { padding: var(--s5); } }

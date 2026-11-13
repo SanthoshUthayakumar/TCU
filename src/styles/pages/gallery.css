@@ -1,0 +1,9 @@
+.gmasonry { columns: 2; column-gap: var(--gutter-a); padding: var(--s3) 6px var(--s5) 0; }
+.gtile { break-inside: avoid; margin-bottom: var(--gutter-b); }
+.gtile__btn { position: relative; display: block; width: 100%; border: var(--border); box-shadow: var(--shadow-sm); background: var(--newsprint); overflow: hidden; transition: transform var(--d2) var(--ease), box-shadow var(--d2) var(--ease); }
+.gtile__btn img { width: 100%; height: auto; object-fit: cover; }
+.gtile__cap { position: absolute; left: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 1px 6px; background: var(--yellow); border: 2px solid var(--ink); font-family: var(--font-hand); font-size: 0.95rem; text-align: left; }
+.gtile__btn:active { transform: translate(3px, 3px); box-shadow: none; }
+@media (hover: hover) { .gtile__btn:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--ink); } .gtile__btn:hover img { transform: scale(1.03); } .gtile__btn img { transition: transform var(--d3) var(--ease); } }
+@media (min-width: 768px) { .gmasonry { columns: 3; column-gap: var(--gutter-c); } .gtile { margin-bottom: var(--gutter-c); } }
+@media (min-width: 1440px) { .gmasonry { columns: 4; } }

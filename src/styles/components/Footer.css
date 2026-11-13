@@ -1,0 +1,9 @@
+.footer { margin-top: var(--s6); padding: var(--s5) var(--page-pad) var(--s5); background: var(--newsprint); border-top: var(--border); }
+.footer__outro { font-family: var(--font-head); font-size: var(--fs-h2); text-transform: uppercase; max-width: 16ch; margin-bottom: var(--s5); }
+.footer__grid { display: grid; gap: var(--s4); max-width: var(--max); margin: 0 auto; }
+.footer__brand { font-family: var(--font-head); text-transform: uppercase; }
+.footer__loc { font-family: var(--font-hand); font-size: 1.1rem; }
+.footer__nav { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); }
+.footer__nav a { font-family: var(--font-head); text-transform: uppercase; font-size: 0.85rem; text-decoration: none; border-bottom: 3px solid var(--ink); }
+.footer__legal { margin-top: var(--s5); font-size: var(--fs-small); }
+@media (min-width: 768px) { .footer__grid { grid-template-columns: 1.2fr 1fr 1fr; align-items: start; } }

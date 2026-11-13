@@ -1,0 +1,15 @@
+.vf { position: fixed; left: 0; top: 0; z-index: var(--z-cursor); pointer-events: none; }
+.vf__box { position: absolute; left: -22px; top: -22px; width: 44px; height: 44px; display: grid; place-items: center; transition: transform var(--d2) var(--ease), background var(--d2) var(--ease); background:
+  linear-gradient(var(--ink), var(--ink)) 0 0 / 12px 3px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 0 0 / 3px 12px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 100% 0 / 12px 3px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 100% 0 / 3px 12px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 0 100% / 12px 3px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 0 100% / 3px 12px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 100% 100% / 12px 3px no-repeat,
+  linear-gradient(var(--ink), var(--ink)) 100% 100% / 3px 12px no-repeat; }
+.vf__label { font-family: var(--font-head); font-size: 0.7rem; opacity: 0; transition: opacity var(--d1) var(--ease); }
+.vf.is-view .vf__box { transform: scale(1.7); background-color: var(--yellow); }
+.vf.is-view .vf__label { opacity: 1; transform: scale(0.6); }
+.has-vf, .has-vf a, .has-vf button, .has-vf summary { cursor: none; }
+.has-vf input, .has-vf textarea, .has-vf select { cursor: text; }

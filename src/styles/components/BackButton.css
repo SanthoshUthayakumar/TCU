@@ -1,0 +1,2 @@
+.backbar { max-width: var(--max); margin: 0 auto; padding: var(--s3) var(--page-pad) 0; }
+.backbar__btn { display: inline-flex; align-items: center; gap: 0.5rem; }

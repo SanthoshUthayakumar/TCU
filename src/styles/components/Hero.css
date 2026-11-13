@@ -1,0 +1,28 @@
+.hero { display: grid; gap: var(--s4); padding-top: var(--s2); }
+.hero__copy { display: grid; gap: var(--s3); justify-items: start; position: relative; z-index: 2; }
+.hero__title { animation: stamp var(--d3) var(--ease) both; transform-origin: 0 100%; }
+.hero__h1 { font-size: var(--fs-display); max-width: 11ch; }
+.hero__actions, .hero__direct { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); }
+.hero__direct .btn { flex: 1 1 14rem; }
+.hero__tip { margin-top: var(--s2); }
+.hero__splash { position: relative; transform-origin: 50% 50%; }
+.hero__splash { width: 100%; min-width: 0; }
+.hero__frame { position: relative; overflow: hidden; border: var(--border); box-shadow: var(--shadow); aspect-ratio: 4 / 5; background: var(--ink); }
+.hero__video { width: 100%; height: 100%; object-fit: cover; }
+.hero__ph { position: absolute; left: 8px; bottom: 8px; right: 8px; padding: 2px 8px; background: var(--yellow); border: 2px solid var(--ink); font-family: var(--font-hand); font-size: 0.95rem; }
+.hero__sfx { right: -4px; top: -30px; }
+@media (min-width: 768px) {
+  .hero { grid-template-columns: 1fr 1fr; align-items: center; gap: var(--s5); min-height: calc(100vh - var(--top-h) - 40px); }
+  .hero__frame { aspect-ratio: 4 / 5; }
+  .slides__frame { max-height: 72vh; }
+}
+@media (min-width: 1024px) { .hero { grid-template-columns: 1.05fr 1fr; } }
+/* Hero motion */
+.hero__tilt { transform-style: preserve-3d; }
+.hero__float { animation: float 6s ease-in-out infinite; }
+.hero__sfx .sfx__word { display: inline-block; animation: pulse 2.4s var(--ease) 1.2s infinite; }
+.hero__lines { position: absolute; inset: -4% 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.hero__lines span { position: absolute; left: 0; height: 6px; background: var(--ink); opacity: 0; animation: speedline 2.6s linear infinite; }
+.hero__lines span:nth-child(1) { top: 16%; width: 34%; }
+.hero__lines span:nth-child(2) { top: 52%; width: 22%; animation-delay: 0.9s; }
+.hero__lines span:nth-child(3) { top: 84%; width: 28%; animation-delay: 1.7s; }

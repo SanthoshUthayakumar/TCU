@@ -1,0 +1,8 @@
+.panel-row { display: grid; gap: var(--gutter-b); align-items: start; }
+.panel-row--a { gap: var(--gutter-c) var(--gutter-a); }
+.panel-row--b { gap: var(--gutter-a) var(--gutter-c); }
+@media (min-width: 768px) {
+  .panel-row--a { grid-template-columns: 1.5fr 1fr; }
+  .panel-row--b { grid-template-columns: 1fr 1.5fr; }
+  .panel-row--c { grid-template-columns: 1fr 1fr; }
+}

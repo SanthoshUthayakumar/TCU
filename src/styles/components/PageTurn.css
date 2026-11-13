@@ -1,0 +1,5 @@
+.pageturn { margin: var(--s6) calc(var(--page-pad) * -1); padding: 0 var(--page-pad); }
+.pageturn__cut { display: flex; justify-content: flex-end; align-items: center; height: 54px; padding-right: var(--s4); background: var(--ink); color: var(--paper); clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%); }
+.pageturn--flip .pageturn__cut { justify-content: flex-start; padding: 0 0 0 var(--s4); clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%); }
+.pageturn__label { font-family: var(--font-hand); font-size: 1.15rem; }
+@media (min-width: 1024px) { .pageturn { margin-inline: auto; max-width: var(--max); } }
