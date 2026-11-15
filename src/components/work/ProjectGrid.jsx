@@ -12,10 +12,10 @@ export default function ProjectGrid({ items }) {
           <motion.li
             key={p.slug}
             layout={!reduced}
-            className={`pgrid__item pgrid__item--${p.layout}`}
-            initial={reduced ? false : { opacity: 0, scale: 0.88 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.88 }}
+            className={`pgrid__item`}
+            initial={reduced ? false : { opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduced ? { opacity: 0 } : { opacity: 0, y: -20 }}
             transition={reduced ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 32 }}
           >
             <ProjectCard project={p} index={i} />

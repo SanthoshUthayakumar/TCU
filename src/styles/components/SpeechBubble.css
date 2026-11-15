@@ -1,8 +1,0 @@
-.bubble { position: relative; display: flex; align-items: flex-start; gap: var(--s2); max-width: 30ch; padding: 0.6rem 0.8rem; background: #fff; border: var(--border); border-radius: 22px 26px 24px 20px / 20px 24px 22px 26px; font-family: var(--font-hand); font-size: var(--fs-caption); line-height: 1.25; margin-bottom: 14px; }
-.bubble__text { margin: 0; }
-.bubble::before, .bubble::after { content: ''; position: absolute; bottom: -15px; width: 0; height: 0; border-style: solid; }
-.bubble--bl::before { left: 22px; border-width: 15px 6px 0 14px; border-color: var(--ink) transparent transparent; }
-.bubble--bl::after { left: 25px; bottom: -9px; border-width: 11px 4px 0 10px; border-color: #fff transparent transparent; }
-.bubble--br::before { right: 22px; border-width: 15px 14px 0 6px; border-color: var(--ink) transparent transparent; }
-.bubble--br::after { right: 25px; bottom: -9px; border-width: 11px 10px 0 4px; border-color: #fff transparent transparent; }
-.bubble__close { display: grid; place-items: center; width: 24px; height: 24px; flex: none; border: 2px solid var(--ink); background: var(--yellow); }

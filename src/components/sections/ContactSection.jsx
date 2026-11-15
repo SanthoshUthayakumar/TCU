@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Mail, MessageCircle } from 'lucide-react';
-import SplitText from '../comic/SplitText';
-import SpeechBubble from '../comic/SpeechBubble';
+import RiseText from '../motion/RiseText';
 import Button from '../ui/Button';
 import { DirectButtons } from './SocialLinks';
 import { CATEGORIES } from '../../data/projects';
@@ -60,18 +59,15 @@ export default function ContactSection({ compact = false }) {
   };
 
   return (
-    <section className={`contact ${compact ? 'contact--compact' : ''}`} data-pg aria-label="Contact">
-      <p className="contact__kicker">HAVE A STORY TO TELL?</p>
-      <SplitText text="LET'S CREATE SOMETHING CINEMATIC." className="contact__title" />
+    <section className={`sec sec--dark contact ${compact ? 'contact--compact' : ''}`} aria-label="Contact"><div className="wrap">
+      <p className="eyebrow">Have a story to tell?</p>
+      <RiseText text="Let's create something cinematic." className="h2 contact__title" />
       <DirectButtons className="contact__direct" />
       {tel && <p className="contact__tel"><a href={tel}>Call {site.phone}</a></p>}
 
       <div className="contact__formwrap">
-        <SpeechBubble tipId="contact" tail="bl" className="contact__tip">Fill in the brief. Nothing is sent until you press send in WhatsApp or your email app.</SpeechBubble>
-        <div className="pages" aria-label={`Brief progress: ${done} of 4 fields filled`}>
-          {[0, 1, 2, 3].map((n) => <span key={n} className={`pages__sheet ${n < done ? 'is-done' : ''}`} aria-hidden="true" />)}
-          <span className="pages__text">Page {Math.min(done + 1, 4)} of 4</span>
-        </div>
+        <p className="contact__tip">Fill in the brief. Nothing is sent until you press send in WhatsApp or your email app.</p>
+        <div className="steps" role="img" aria-label={`Brief progress: ${done} of 4 fields filled`}>{[0, 1, 2, 3].map((n) => <span key={n} className={`steps__bar ${n < done ? 'is-done' : ''}`} />)}<span className="steps__text">Step {Math.min(done + 1, 4)} of 4</span></div>
         <form className="form" noValidate onSubmit={(e) => e.preventDefault()}>
           <Field id="c-name" label="Your name" error={errors.name} filled={v.name}>
             <input id="c-name" className="field__input" value={v.name} onChange={set('name')} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'c-name-err' : undefined} placeholder=" " />
@@ -91,12 +87,12 @@ export default function ContactSection({ compact = false }) {
           </Field>
           <div className="form__actions">
             {wa && <Button icon={MessageCircle} size="lg" onClick={sendWhatsApp}>Send on WhatsApp</Button>}
-            {em && <Button icon={Mail} size="lg" variant="ink" onClick={sendEmail}>Send by email</Button>}
+            {em && <Button icon={Mail} size="lg" variant="ghost" onClick={sendEmail}>Send by email</Button>}
           </div>
           {!wa && !em && <p className="form__note">Placeholder: set whatsappNumber or email in src/data/site.js to enable sending.</p>}
           <p className="form__status" role="status" aria-live="polite">{status}</p>
         </form>
       </div>
-    </section>
+    </div></section>
   );
 }

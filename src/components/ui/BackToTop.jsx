@@ -29,7 +29,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
         >
-          <ArrowUp size={22} strokeWidth={3} aria-hidden="true" />
+          <ArrowUp size={22} strokeWidth={2} aria-hidden="true" />
         </motion.button>
       )}
     </AnimatePresence>

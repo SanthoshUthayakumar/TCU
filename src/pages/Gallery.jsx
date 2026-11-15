@@ -2,10 +2,8 @@ import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import CategoryFilter from '../components/work/CategoryFilter';
 import Lightbox from '../components/work/Lightbox';
-import SplitText from '../components/comic/SplitText';
-import SpeechBubble from '../components/comic/SpeechBubble';
-import CaptionBox from '../components/comic/CaptionBox';
-import HalftoneField from '../components/comic/HalftoneField';
+import Wipe from '../components/motion/Wipe';
+import RiseText from '../components/motion/RiseText';
 import useReducedMotion from '../hooks/useReducedMotion';
 import usePageMeta from '../hooks/usePageMeta';
 import gallery from '../data/gallery';
@@ -26,21 +24,22 @@ export default function Gallery() {
 
   return (
     <div className="page page--gallery">
-      <HalftoneField />
-      <header className="page__head" data-pg>
-        <SplitText as="h1" text="THE GALLERY" className="page__title" />
-        <CaptionBox tone="paper">{gallery.length} frames. Tap any photo to view it large.</CaptionBox>
-        <SpeechBubble tipId="gallery" tail="bl">Pinch to zoom. Swipe down to close.</SpeechBubble>
+      <header className="sec sec--dark page__head">
+        <div className="wrap">
+          <p className="eyebrow">Gallery</p>
+          <RiseText as="h1" text="The gallery" className="page__title" />
+          <p className="page__sub">{gallery.length} frames. Select any photo to view it large.</p>
+        </div>
       </header>
       {gallery.length ? (
-        <section data-pg aria-label="Photos">
+        <section className="wrap" aria-label="Photos">
           <CategoryFilter categories={cats} active={active} onChange={setActive} counts={counts} />
           <ul className="gmasonry">
             <AnimatePresence initial={false}>
               {items.map((g) => (
-                <motion.li key={g.id} className="gtile" initial={reduced ? false : { opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.3 }}>
-                  <button type="button" className="gtile__btn" data-cursor="view" onClick={() => setOpen({ src: g.src, alt: g.alt, caption: `${g.title} / ${g.category}${g.caption ? `. ${g.caption}` : ''}` })} aria-label={`View large: ${g.alt}`}>
-                    <img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ aspectRatio: g.ratio }} />
+                <motion.li key={g.id} className="gtile" initial={reduced ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.3 }}>
+                  <button type="button" className="gtile__btn" onClick={() => setOpen({ src: g.src, alt: g.alt, caption: `${g.title} / ${g.category}${g.caption ? `. ${g.caption}` : ''}` })} aria-label={`View large: ${g.alt}`}>
+                    <Wipe><img src={g.src} alt={g.alt} loading="lazy" decoding="async" style={{ aspectRatio: g.ratio }} /></Wipe>
                     <span className="gtile__cap">{g.title}</span>
                   </button>
                 </motion.li>

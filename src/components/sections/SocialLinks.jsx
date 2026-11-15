@@ -5,10 +5,10 @@ import Button from '../ui/Button';
 const ICONS = { instagram: Instagram, facebook: Facebook, youtube: Youtube, linkedin: Linkedin, x: Twitter };
 const GLYPH = { vimeo: 'Vi', behance: 'Be', tiktok: 'Tk' };
 
-/* Lucide has no Vimeo, Behance or TikTok mark, so those get a comic lettering badge. */
+/* Lucide has no Vimeo, Behance or TikTok mark, so those get a lettering badge. */
 export function SocialIcon({ id, size = 20 }) {
   const Icon = ICONS[id];
-  if (Icon) return <Icon size={size} strokeWidth={2.5} aria-hidden="true" />;
+  if (Icon) return <Icon size={size} strokeWidth={2} aria-hidden="true" />;
   return <span className="social__glyph" aria-hidden="true">{GLYPH[id] || '*'}</span>;
 }
 
@@ -23,7 +23,7 @@ export default function SocialLinks({ className = '', variant = 'chips' }) {
           <a className="social__link" href={s.href} data-tip={s.label} {...extProps(`${s.label} profile`)}>
             <SocialIcon id={s.id} size={variant === 'tiles' ? 26 : 20} />
             {variant !== 'icons' && <span className="social__name">{s.label}</span>}
-            {variant === 'chips' && <ArrowUpRight size={14} strokeWidth={3} aria-hidden="true" />}
+            {variant === 'chips' && <ArrowUpRight size={14} strokeWidth={2} aria-hidden="true" />}
           </a>
         </li>
       ))}
@@ -39,7 +39,7 @@ export function DirectButtons({ size = 'lg', message, className = '' }) {
   return (
     <div className={`direct ${className}`.trim()}>
       {wa && <Button href={wa} external label="Message on WhatsApp" size={size} icon={MessageCircle}>Message on WhatsApp</Button>}
-      {ig && <Button href={ig} external label="DM on Instagram" size={size} variant="ink" icon={Send}>DM on Instagram</Button>}
+      {ig && <Button href={ig} external label="DM on Instagram" size={size} variant="ghost" icon={Send}>DM on Instagram</Button>}
     </div>
   );
 }

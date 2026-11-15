@@ -1,5 +1,0 @@
-.tabbar { position: fixed; z-index: var(--z-tab); left: 0; right: 0; bottom: 0; height: calc(var(--tab-h) + var(--safe-b)); padding-bottom: var(--safe-b); display: grid; grid-template-columns: 52px repeat(5, 1fr); align-items: stretch; background: var(--paper); border-top: var(--border); }
-.tabbar__stamp { align-self: center; justify-self: center; display: grid; place-items: center; width: 44px; height: 34px; background: var(--yellow); border: var(--border); font-family: var(--font-head); font-size: 0.8rem; text-decoration: none; transform: rotate(-5deg); }
-.tabbar__tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-family: var(--font-head); font-size: 0.6rem; text-transform: uppercase; letter-spacing: -0.01em; min-width: 0; }
-.tabbar__tab.is-active { background: var(--yellow); box-shadow: inset 0 3px 0 var(--ink); }
-@media (min-width: 768px) { .tabbar { display: none; } }

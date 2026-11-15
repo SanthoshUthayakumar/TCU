@@ -1,7 +1,0 @@
-.lightbox { background: var(--newsprint); touch-action: none; }
-.lightbox__bar { display: flex; justify-content: flex-end; gap: var(--s2); padding: var(--s2) var(--page-pad); padding-top: calc(var(--s2) + env(safe-area-inset-top, 0px)); }
-.lightbox__btn { width: 48px; height: 48px; display: grid; place-items: center; background: var(--yellow); border: var(--border); box-shadow: var(--shadow-sm); }
-.lightbox__stage { flex: 1; min-height: 0; display: grid; place-items: center; overflow: hidden; touch-action: pan-x; }
-.lightbox__img { max-width: 100%; max-height: 100%; border: var(--border); box-shadow: var(--shadow); transition: transform var(--d1) var(--ease); user-select: none; -webkit-user-drag: none; }
-.lightbox__caption { margin: var(--s2) auto 0; padding: 0 var(--page-pad); font-family: var(--font-hand); font-size: 1.15rem; text-align: center; }
-.lightbox__hint { text-align: center; font-size: var(--fs-small); padding: var(--s1) var(--page-pad) calc(var(--s2) + var(--safe-b)); margin: 0 auto; }

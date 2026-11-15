@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { tokens } from '../../utils/motion';
 
 const ORDER = ['/', '/work', '/about', '/services', '/gallery', '/contact'];
 const rank = (p) => {
@@ -9,7 +8,7 @@ const rank = (p) => {
 };
 const depth = (p) => p.split('/').filter(Boolean).length;
 
-/* Direction: +1 when the next page is "later" in the book, -1 when earlier. */
+/* Direction: +1 when the next page is later in the menu order, -1 when earlier. */
 export function useRouteDirection(pathname) {
   const prev = useRef(pathname);
   const dir = useRef(1);
@@ -23,20 +22,17 @@ export function useRouteDirection(pathname) {
 }
 
 export default function PageTransition({ dir, children }) {
-  const t = tokens();
   return (
     <motion.div
       className="page-turn"
       custom={dir}
       variants={{
-        initial: (d) => ({ opacity: 0, x: d * 56, rotateY: d * -6 }),
-        enter: { opacity: 1, x: 0, rotateY: 0, transition: { duration: t.base * 0.65, ease: t.ease } },
-        exit: (d) => ({ opacity: 0, x: d * -40, rotateY: d * 5, transition: { duration: t.base * 0.55, ease: t.ease } }),
+        initial: (d) => ({ opacity: 0, y: 30, rotateX: 6, x: d * 24 }),
+        enter: { opacity: 1, y: 0, rotateX: 0, x: 0, transition: { duration: 0.55, ease: [0.2, 0.8, 0.2, 1] } },
+        exit: (d) => ({ opacity: 0, y: -16, rotateX: -4, x: d * -16, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] } }),
       }}
-      initial="initial"
-      animate="enter"
-      exit="exit"
-      style={{ transformPerspective: 1400, transformOrigin: dir > 0 ? 'left center' : 'right center' }}
+      initial="initial" animate="enter" exit="exit"
+      style={{ transformPerspective: 1400, transformOrigin: 'center top' }}
     >
       {children}
     </motion.div>

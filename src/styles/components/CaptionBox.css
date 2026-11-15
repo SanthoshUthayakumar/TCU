@@ -1,3 +1,0 @@
-.caption { display: inline-block; max-width: 100%; padding: 0.35rem 0.65rem; border: var(--border); font-family: var(--font-hand); font-size: var(--fs-caption); line-height: 1.25; overflow-wrap: anywhere; }
-.caption--yellow { background: var(--yellow); }
-.caption--paper { background: var(--paper); }

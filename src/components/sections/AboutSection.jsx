@@ -1,41 +1,39 @@
 import { Link } from 'react-router-dom';
-import SplitText from '../comic/SplitText';
-import Panel from '../comic/Panel';
-import PanelRow from '../comic/PanelRow';
-import HalftoneImage from '../comic/HalftoneImage';
-import CaptionBox from '../comic/CaptionBox';
 import BookButton from '../ui/BookButton';
+import Wipe from '../motion/Wipe';
+import Reveal3D from '../motion/Reveal3D';
+import RiseText from '../motion/RiseText';
+import ScrollText from '../motion/ScrollText';
 import site from '../../data/site';
 
 export default function AboutSection({ teaser = false }) {
   return (
-    <section className="about" id="about" data-pg aria-label="About Us">
-      <PanelRow pattern="a">
+    <section className="sec about" id="about" aria-label="About Us">
+      <div className="wrap about__grid">
         <div className="about__text">
-          <CaptionBox>About Us</CaptionBox>
-          <SplitText as="h2" text={`HI, I'M TCU.`} className="about__title" />
+          <p className="eyebrow">About Us</p>
+          <RiseText as="h2" text="Hi, I'm TCU." className="h2" />
           {site.ownerRole && <p className="about__role">{site.ownerRole}</p>}
-          <p className="about__quote">Every frame tells a story. Every reel creates a feeling.</p>
+          <ScrollText text="Every frame tells a story. Every reel creates a feeling." className="about__quote" />
           {site.aboutText.map((t, i) => <p key={i} className="about__p">{t}</p>)}
-          <ul className="about__skills" aria-label="What I do">
-            {site.disciplines.map((d) => <li key={d}><CaptionBox tone="paper">{d}</CaptionBox></li>)}
+          <ul className="tags" aria-label="What I do">
+            {site.disciplines.map((d) => <li key={d}>{d}</li>)}
           </ul>
           {site.facts.length > 0 && (
-            <dl className="about__facts">
+            <dl className="facts">
               {site.facts.map((f) => <div key={f.label}><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
             </dl>
           )}
-          {site.location && <CaptionBox tone="paper">Based in {site.location}</CaptionBox>}
+          {site.location && <p className="about__loc">Based in {site.location}</p>}
           <div className="about__actions">
-            <BookButton size="sm">Work with me</BookButton>
-            {teaser && <Link className="about__more" to="/about">More About Us</Link>}
+            <BookButton size="md">Work with me</BookButton>
+            {teaser && <Link className="textlink" to="/about">More About Us</Link>}
           </div>
         </div>
-        <Panel tilt={1} className="about__panel">
-          <HalftoneImage src={site.aboutImage} alt={`Portrait of ${site.ownerName}, placeholder`} ratio="4/5" parallax />
-          {site.aboutImageIsPlaceholder && <CaptionBox className="about__ph">..</CaptionBox>}
-        </Panel>
-      </PanelRow>
+        <Reveal3D className="about__photo" tilt={10} side={-24} depth={-200}>
+          <Wipe><img src={site.aboutImage} alt={`Portrait of ${site.ownerName}`} loading="lazy" /></Wipe>
+        </Reveal3D>
+      </div>
     </section>
   );
 }

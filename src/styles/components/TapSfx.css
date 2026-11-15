@@ -1,2 +1,0 @@
-.tapsfx { position: fixed; inset: 0; z-index: var(--z-cursor); pointer-events: none; overflow: hidden; }
-.tapsfx__pop { position: absolute; font-family: var(--font-sfx); font-size: 2rem; color: var(--red); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill; animation: tap-pop 450ms var(--ease) forwards; }

@@ -1,4 +1,4 @@
-/* Film-credit style list. Empty credits render nothing. */
+/* Credits list. Empty credits render nothing. */
 export default function CreditsSection({ credits = [], title = 'Credits', bare = false }) {
   if (!credits.length) return null;
   const list = (
@@ -13,9 +13,9 @@ export default function CreditsSection({ credits = [], title = 'Credits', bare =
   );
   if (bare) return <div className="credits credits--bare"><h3 className="credits__title">{title}</h3>{list}</div>;
   return (
-    <section className="credits" data-pg aria-label={title}>
+    <section className="sec credits" aria-label={title}><div className="wrap">
       <h2 className="credits__title">{title}</h2>
       {list}
-    </section>
+    </div></section>
   );
 }

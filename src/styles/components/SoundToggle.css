@@ -1,2 +1,0 @@
-.soundtoggle { width: 44px; height: 44px; display: grid; place-items: center; border: var(--border); background: var(--paper); }
-.soundtoggle[aria-pressed='true'] { background: var(--yellow); }

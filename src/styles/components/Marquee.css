@@ -1,7 +1,0 @@
-.marquee { overflow: hidden; border-block: var(--border); background: var(--yellow); padding: 0.5rem 0; margin: var(--s5) calc(var(--page-pad) * -1); }
-.marquee__track { display: flex; width: max-content; will-change: transform; }
-.marquee__row { display: flex; flex: none; }
-.marquee__item { font-family: var(--font-head); font-size: clamp(1.6rem, 5vw, 3rem); line-height: 1; white-space: nowrap; padding-right: 0.5em; }
-.marquee__sep { padding-left: 0.5em; }
-.marquee--static { overflow: visible; }
-.marquee--static .marquee__row { flex-wrap: wrap; justify-content: center; }

@@ -25,7 +25,7 @@ export default function Marquee({ items, base = -3 }) {
   const row = (key, hidden) => (
     <span className="marquee__row" key={key} aria-hidden={hidden || undefined}>
       {items.map((w) => (
-        <span className="marquee__item" key={w}>{w}<span className="marquee__sep" aria-hidden="true">✭</span></span>
+        <span className="marquee__item" key={w}>{w}<span className="marquee__sep" aria-hidden="true" /></span>
       ))}
     </span>
   );

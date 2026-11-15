@@ -1,7 +1,0 @@
-.pnext { display: grid; gap: var(--s4); justify-items: start; margin-top: var(--s5); }
-.pnext__line { font-family: var(--font-head); text-transform: uppercase; font-size: var(--fs-h3); margin-bottom: var(--s2); }
-.pnext__links { display: grid; gap: var(--s3); width: 100%; }
-.pnext__link { display: flex; align-items: center; gap: var(--s2); padding: var(--s3); border: var(--border); background: var(--paper); box-shadow: var(--shadow-sm); text-decoration: none; font-family: var(--font-head); text-transform: uppercase; }
-.pnext__link small { display: block; font-family: var(--font-hand); font-size: 1rem; text-transform: none; }
-.pnext__link--next { justify-content: space-between; text-align: right; }
-@media (min-width: 768px) { .pnext__links { grid-template-columns: 1fr 1fr; } }

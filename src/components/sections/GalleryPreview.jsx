@@ -1,31 +1,52 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Panel from '../comic/Panel';
-import HalftoneImage from '../comic/HalftoneImage';
-import SplitText from '../comic/SplitText';
 import Button from '../ui/Button';
+import RiseText from '../motion/RiseText';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import useReducedMotion from '../../hooks/useReducedMotion';
 import gallery from '../../data/gallery';
 
+/* Desktop: the section pins and the photo rail travels sideways as you scroll, each frame angled in depth.
+   Mobile and reduced motion: a plain swipeable row. */
 export default function GalleryPreview() {
-  const items = gallery.slice(0, 9);
+  const items = gallery.slice(0, 6);
+  const wide = useMediaQuery('(min-width: 900px)');
+  const reduced = useReducedMotion();
+  const pin = wide && !reduced;
+  const outer = useRef(null);
+  const rail = useRef(null);
+  const [dist, setDist] = useState(0);
+  const { scrollYProgress } = useScroll({ target: outer, offset: ['start start', 'end end'] });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -dist]);
+  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-14, 0, 14]);
+
+  useEffect(() => {
+    const measure = () => rail.current && setDist(Math.max(0, rail.current.scrollWidth - window.innerWidth + 80));
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [pin, items.length]);
+
   if (!items.length) return null;
   return (
-    <section className="gprev" data-pg aria-label="Gallery preview">
-      <div className="gprev__head">
-        <SplitText text="FROM THE GALLERY" className="gprev__title" />
-        <Button to="/gallery" icon={ArrowRight} size="sm" variant="ink">Open the gallery</Button>
+    <section className={`gprev ${pin ? 'is-pinned' : ''}`} ref={outer} aria-label="Gallery preview">
+      <div className="gprev__pin">
+        <div className="wrap gprev__head">
+          <div><p className="eyebrow">Gallery</p><RiseText text="From the gallery" className="h2" /></div>
+          <Button to="/gallery" icon={ArrowRight} size="md" variant="ghost">Open the gallery</Button>
+        </div>
+        <motion.ul className="gprev__rail" ref={rail} style={pin ? { x } : undefined}>
+          {items.map((g, i) => (
+            <motion.li key={g.id} className="gprev__item" style={pin ? { rotateY, transformPerspective: 1300 } : undefined}>
+              <Link to="/gallery" aria-label={`Open gallery: ${g.alt}`}>
+                <img src={g.src} alt={g.alt} loading="lazy" style={{ aspectRatio: i % 3 === 0 ? '3/4' : '4/3' }} />
+              </Link>
+            </motion.li>
+          ))}
+        </motion.ul>
       </div>
-      <ul className="gprev__grid">
-        {items.map((g, i) => (
-          <li key={g.id} className={`gprev__item gprev__item--${i % 3}`}>
-            <Link to="/gallery" aria-label={`Open gallery: ${g.alt}`}>
-              <Panel index={i} tilt={i % 2 ? 0.7 : -0.7}>
-                <HalftoneImage src={g.src} alt={g.alt} ratio={i % 3 === 0 ? '4/3' : '4/3'} />
-              </Panel>
-            </Link>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

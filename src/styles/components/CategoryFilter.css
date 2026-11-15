@@ -1,6 +1,0 @@
-.cfilter { display: flex; flex-wrap: wrap; gap: var(--gutter-a); margin-bottom: var(--s3); }
-.cfilter__btn { position: relative; min-height: 44px; padding: 0.35rem 0.9rem; border: var(--border); background: var(--paper); font-family: var(--font-head); font-size: 0.8rem; text-transform: uppercase; box-shadow: var(--shadow-sm); }
-.cfilter__btn:active { transform: translate(3px, 3px); box-shadow: none; }
-.cfilter__btn.is-on { box-shadow: none; transform: translate(3px, 3px); }
-.cfilter__pill { position: absolute; inset: 0; background: var(--yellow); z-index: 0; }
-.cfilter__text { position: relative; z-index: 1; }

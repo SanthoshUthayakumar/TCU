@@ -6,8 +6,7 @@ export default function Button({ to, href, external = false, label, variant = 'p
   const inner = (
     <>
       <span className="btn__label">{children}</span>
-      {Icon && <Icon size={size === 'lg' ? 22 : 18} strokeWidth={2.5} aria-hidden="true" />}
-      <span className="btn__pop" aria-hidden="true" />
+      {Icon && <Icon size={size === 'lg' ? 20 : 17} strokeWidth={2} aria-hidden="true" />}
     </>
   );
   if (to) return <Link className={cls} to={to} {...rest}>{inner}</Link>;

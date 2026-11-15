@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Maximize2 } from 'lucide-react';
 import Button from '../ui/Button';
 import VideoPlayer from '../ui/VideoPlayer';
-import CaptionBox from '../comic/CaptionBox';
 import CreditsSection from '../sections/CreditsSection';
 import Lightbox from './Lightbox';
 import useReducedMotion from '../../hooks/useReducedMotion';
@@ -40,9 +39,9 @@ function ReaderPage({ page, project, onZoom, lazy }) {
         <button type="button" className="reader__zoom" onClick={() => onZoom(page)} aria-label="View photo large"><Maximize2 size={18} aria-hidden="true" /></button>
       </div>
       {(page.caption || page.bts) && (
-        <CaptionBox as="figcaption" className="reader__caption">
+        <figcaption className="reader__caption">
           {page.bts && <strong>Behind the scenes. </strong>}{page.caption}
-        </CaptionBox>
+        </figcaption>
       )}
     </figure>
   );
@@ -93,16 +92,16 @@ export default function PanelReader({ project }) {
 
   const move = reduced ? 0 : 60;
   const variants = {
-    enter: (d) => ({ x: d * move, rotate: reduced ? 0 : d * 2, opacity: 0 }),
-    center: { x: 0, rotate: 0, opacity: 1 },
-    exit: (d) => ({ x: -d * move, rotate: reduced ? 0 : -d * 2, opacity: 0 }),
+    enter: (d) => ({ x: d * move, rotateY: reduced ? 0 : d * -18, opacity: 0 }),
+    center: { x: 0, rotateY: 0, opacity: 1 },
+    exit: (d) => ({ x: -d * move, rotateY: reduced ? 0 : d * 18, opacity: 0 }),
   };
   const page = pages[i];
 
   return (
-    <section className="reader" aria-roledescription="carousel" aria-label={`${project.title}, page reader`} data-pg>
+    <section className="reader" aria-roledescription="carousel" aria-label={`${project.title}, page reader`} >
       <div className="reader__bar">
-        <p className="reader__count" aria-live="polite">PAGE {pad(i + 1)} / {pad(pages.length)}</p>
+        <p className="reader__count" aria-live="polite">Page {pad(i + 1)} / {pad(pages.length)}</p>
         <div className="reader__tools">
           <button type="button" className="reader__tool" onClick={() => setView(view === 'pages' ? 'scroll' : 'pages')}>{view === 'pages' ? 'Scroll view' : 'Page view'}</button>
           {view === 'pages' && i !== last && <button type="button" className="reader__tool" onClick={() => go(last)}>Skip to credits</button>}
@@ -141,7 +140,7 @@ export default function PanelReader({ project }) {
             )}
           </div>
           <div className="reader__nav">
-            <Button variant="ink" icon={ArrowLeft} onClick={() => go(i - 1)} disabled={i === 0} aria-label="Previous page">Prev</Button>
+            <Button variant="ghost" icon={ArrowLeft} onClick={() => go(i - 1)} disabled={i === 0} aria-label="Previous page">Prev</Button>
             <Button icon={ArrowRight} onClick={() => go(i + 1)} disabled={i === last} aria-label="Next page">Next</Button>
           </div>
         </>
@@ -149,7 +148,7 @@ export default function PanelReader({ project }) {
         <div className="reader__scroll">
           {pages.map((p, k) => (
             <div className="reader__scrollitem" key={k}>
-              <p className="reader__scrollnum">PAGE {pad(k + 1)}</p>
+              <p className="reader__scrollnum">Page {pad(k + 1)}</p>
               <ReaderPage page={p} project={project} onZoom={setZoom} lazy={k > 1} />
             </div>
           ))}
