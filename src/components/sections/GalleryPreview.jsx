@@ -41,7 +41,7 @@ export default function GalleryPreview() {
           {items.map((g, i) => (
             <motion.li key={g.id} className="gprev__item" style={pin ? { rotateY, transformPerspective: 1300 } : undefined}>
               <Link to="/gallery" aria-label={`Open gallery: ${g.alt}`}>
-                <img src={g.src} alt={g.alt} loading="lazy" style={{ aspectRatio: i % 3 === 0 ? '3/4' : '4/3' }} />
+                <img src={g.src} alt={g.alt} loading="lazy" style={{ aspectRatio: i % 3 === 0 ? '3/4' : '3/4' }} />
               </Link>
             </motion.li>
           ))}
