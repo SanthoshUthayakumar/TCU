@@ -10,7 +10,7 @@ function Flip({ svc, index }) {
   const reduced = useReducedMotion();
   return (
     <Reveal3D as="li" className="svc" tilt={28} lift={60} side={index % 2 ? 10 : -10}>
-      <button type="button" className={`svc__btn ${reduced ? 'is-static' : ''}`} aria-expanded={reduced ? true : flipped} onClick={() => setFlipped(!flipped)}>
+      <button type="button" style={{ '--fd': `${index * 0.6}s` }} className={`svc__btn ${reduced ? 'is-static' : ''}`} aria-expanded={reduced ? true : flipped} onClick={() => setFlipped(!flipped)}>
         <motion.span className="svc__inner" animate={{ rotateY: flipped && !reduced ? 180 : 0 }} transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}>
           <span className="svc__face svc__face--front">
             <span className="svc__idx">{String(index + 1).padStart(2, '0')}</span>

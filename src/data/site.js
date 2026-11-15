@@ -50,7 +50,7 @@ const site = {
   // Clients marquee + numbers on the home page. Replace the placeholders; an empty list hides the marquee.
   clients: ['NEXA FUSION', 'BK CATERING', 'BLACK BAND', 'TRAPFITT', 'ATMAN EVENTS', 'KRISHNA CATERING', 'JUSSSWAP', 'E2R FOOD ZONE','',''],
   // clients: leave '' to count the list above. events: number of events covered (0 hides it).
-  stats: { clients: '', events: 110, views:50},
+  stats: { clients: '', events: 50, views:50},
   statsArePlaceholder: true,
   // Hero slideshow (changes every 5 seconds). Leave empty to use the covers of your featured projects.
   // Format: [{ src: importedImage, alt: 'Describe the photo', label: 'Short caption' }]
@@ -74,8 +74,8 @@ const site = {
   ownerName: 'Tom',
   ownerRole: 'Cinematography and photography',
   aboutText: [
-    'Born from a passion for visual storytelling, TCU has been crafting scroll-stopping content for brands, creators, and businesses since 2024.',
-    'Every frame is composed with intention. Every edit is built for impact.',
+    '',
+    '',
   ],
   facts: [], // [{ label: 'Based in', value: 'City' }]
   aboutImage,

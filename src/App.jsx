@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ScrollProgress from './components/layout/ScrollProgress';
+import AutoReveal from './components/motion/AutoReveal';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingContact from './components/layout/FloatingContact';
@@ -48,6 +49,7 @@ export default function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <ScrollProgress />
       <Navbar />
+      <AutoReveal />
       <main id="main" className="app-main">
         {reduced ? (
           routes

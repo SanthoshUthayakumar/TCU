@@ -15,11 +15,13 @@ function StackCard({ p, i, n }) {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, -9]);
   const dim = useTransform(scrollYProgress, [0, 1], [0, 0.45]);
+  const { scrollYProgress: ps } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const imgY = useTransform(ps, [0, 1], ['-7%', '7%']);
   return (
     <li className="stack__item" ref={ref} style={{ '--i': i }}>
       <motion.article className="story" style={reduced ? undefined : { scale, rotateX, transformPerspective: 1400, transformOrigin: 'center top' }}>
         <Link to={`/work/${p.slug}`} className="story__photo" aria-label={`Open ${p.title}`}>
-          <Wipe className="wipe--fill"><img src={p.cover} alt={`${p.title} cover`} loading="lazy" /></Wipe>
+          <Wipe className="wipe--fill"><motion.img src={p.cover} alt={`${p.title} cover`} loading="lazy" style={reduced ? undefined : { y: imgY, scale: 1.16 }} /></Wipe>
         </Link>
         <div className="story__body">
           <p className="story__count">{String(i + 1).padStart(2, '0')} <span>/ {String(n).padStart(2, '0')}</span></p>

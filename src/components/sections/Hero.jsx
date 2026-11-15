@@ -40,7 +40,7 @@ function Timecode({ reduced }) {
   return <p className="hero__tc"><i aria-hidden="true" />REC <span ref={ref}>00:00:00:00</span></p>;
 }
 
-/* Pinned hero. Scrolling opens the viewfinder: the photo grows to full screen while the title splits apart. */
+/* Pinned hero. Scrolling grows the portrait photo in the centre while the title splits to the left and right sides. */
 export default function Hero() {
   const ref = useRef(null);
   const reduced = useReducedMotion();
@@ -59,45 +59,78 @@ export default function Hero() {
     return undefined;
   }, [reduced]);
 
+  const lRef = useRef(null);
+  const rRef = useRef(null);
+  const [tw, setTw] = useState({ l: 0, r: 0 });
+  /* Title size is driven by the screen; the measured widths let the side words shrink to fit their gutter. */
+  const F = wide ? Math.min(vp.w * 0.15, vp.h * 0.2) : vp.w * 0.145;
+  useEffect(() => {
+    const m = () => lRef.current && rRef.current && setTw({ l: lRef.current.offsetWidth, r: rRef.current.offsetWidth });
+    m();
+    document.fonts?.ready.then(m);
+  }, [F, wide]);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 26, mass: 0.3 });
-  /* Portrait 4:5 frame. It starts as a framed card and grows to the full height of the screen without ever cropping the photo. */
-  /* Phones start with a smaller card so the title, buttons and dock all have room. */
+  const END = 0.62;
+
+  /* Portrait frame: starts as a framed card, ends centred and large with both sides free. */
   const w0 = wide ? Math.min(vp.h * 0.6 * 0.8, vp.w * 0.78) : Math.min(vp.h * 0.4 * 0.8, vp.w * 0.62);
   const h0 = w0 / 0.8;
-  const w1 = Math.min(vp.w, vp.h * 0.8);
-  const width = useTransform(p, [0, 0.62], [w0, w1]);
-  const height = useTransform(p, [0, 0.62], [h0, vp.h]);
-  const radius = useTransform(p, [0, 0.62], [12, 0]);
-  const bOp = useTransform(p, [0, 0.45, 0.62], [1, 1, 0]);
-  const row1 = useTransform(p, [0, 0.5], ['0%', '-70%']);
-  const row2 = useTransform(p, [0, 0.5], ['0%', '70%']);
-  const titleOp = useTransform(p, [0.18, 0.5], [1, 0]);
-  const titleZ = useTransform(p, [0, 0.5], [0, 220]);
+  const w1 = wide ? Math.min(vp.h * 0.8, vp.w * 0.56) : vp.w * 0.62;
+  const h1 = wide ? vp.h : Math.min(vp.h * 0.8, w1 / 0.62);
+  const width = useTransform(p, [0, END], [w0, w1]);
+  const height = useTransform(p, [0, END], [h0, h1]);
+  const radius = useTransform(p, [0, END], [12, wide ? 0 : 12]);
+  const bOp = useTransform(p, [0, 0.45, END], [1, 1, wide ? 1 : 1]);
+
+  /* Title: three stacked lines in the middle at first, then "TOM CINEMATIC" goes left and "UNIVERSE" goes right.
+     On phones the gutters are narrow, so the words turn and run vertically along the photo. */
+  const lineH = F * 0.84;
+  const nL = wide ? 2 : 1;
+  const total = (nL + 1) * lineH;
+  const yL0 = -(total / 2 - (nL * lineH) / 2);
+  const yR0 = total / 2 - lineH / 2;
+  const sideW = (vp.w - w1) / 2;
+  const dx = w1 / 2 + sideW / 2;
+  const longest = Math.max(tw.l, tw.r, 1);
+  const s = wide ? Math.min(1, (sideW * 0.86) / longest) : Math.min(1, (sideW * 0.86) / lineH, (vp.h * 0.78) / longest);
+  const lx = useTransform(p, [0, END], [0, -dx]);
+  const rx = useTransform(p, [0, END], [0, dx]);
+  const ly = useTransform(p, [0, END], [yL0, 0]);
+  const ry = useTransform(p, [0, END], [yR0, 0]);
+  const lrot = useTransform(p, [0, END], [0, wide ? 0 : -90]);
+  const rrot = useTransform(p, [0, END], [0, wide ? 0 : 90]);
+  const sc = useTransform(p, [0, END], [1, s]);
   const uiOp = useTransform(p, [0, 0.3], [1, 0]);
   const live = (v) => (reduced ? undefined : v);
+  const still = (x, rot) => ({ x, y: 0, rotate: rot, scale: s });
 
   return (
     <section className="hero" ref={ref}>
       <div className="hero__pin">
         {scene && <Suspense fallback={null}><Scene3D /></Suspense>}
 
-        <motion.div className="hero__window" style={reduced ? { width: w1, height: vp.h } : { width, height }}>
+        <motion.div className="hero__window" style={reduced ? { width: w1, height: h1 } : { width, height }}>
           <motion.div className="hero__clip" style={reduced ? undefined : { borderRadius: radius }}>
             {site.heroVideo && !reduced ? <video className="hero__video" src={site.heroVideo} poster={site.heroPoster} autoPlay muted loop playsInline preload="metadata" /> : <HeroSlides />}
           </motion.div>
           {!reduced && <motion.div className="hero__brackets" style={{ opacity: bOp }} aria-hidden="true"><i /><i /><i /><i /></motion.div>}
         </motion.div>
 
-        <motion.div className="hero__title" style={live({ opacity: titleOp, z: titleZ, transformPerspective: 900 })}>
+        <div className="hero__title" style={{ '--F': `${F}px` }}>
           <h1 className="hero__h1" aria-label="Tom Cinematic Universe">
-            <motion.span className="hero__line" style={live({ x: row1 })}><Letters text="TOM CINEMATIC" delay={0.2} reduced={reduced} /></motion.span>
-            <motion.span className="hero__line hero__line--2" style={live({ x: row2 })}><Letters text="UNIVERSE" delay={0.75} reduced={reduced} /></motion.span>
+            <motion.span ref={lRef} className="hero__side" style={reduced ? { y: 0, ...still(-dx, wide ? 0 : -90) } : { x: lx, y: ly, rotate: lrot, scale: sc }}>
+              {(wide ? ['TOM', 'CINEMATIC'] : ['TOM CINEMATIC']).map((t, i) => <span className="hero__line" key={t}><Letters text={t} delay={0.2 + i * 0.25} reduced={reduced} /></span>)}
+            </motion.span>
+            <motion.span ref={rRef} className="hero__side hero__side--r" style={reduced ? still(dx, wide ? 0 : 90) : { x: rx, y: ry, rotate: rrot, scale: sc }}>
+              <span className="hero__line"><Letters text="UNIVERSE" delay={0.8} reduced={reduced} /></span>
+            </motion.span>
           </h1>
-        </motion.div>
+        </div>
 
         <motion.div className="hero__top" style={live({ opacity: uiOp })}>
-          <p className="eyebrow">{site.disciplines.join('  /  ')}</p>
+          <p className="eyebrow">{site.disciplines.join('  - ')}</p>
           <Timecode reduced={reduced} />
         </motion.div>
 
@@ -107,7 +140,7 @@ export default function Hero() {
             <Magnetic><BookButton variant="ghost" size={wide ? 'lg' : 'sm'} /></Magnetic>
           </div>
           
-         
+          <p className="hero__cue" aria-hidden="true"><span>Scroll</span><i /></p>
         </motion.div>
       </div>
     </section>

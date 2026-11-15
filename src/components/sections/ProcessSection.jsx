@@ -15,12 +15,13 @@ export default function ProcessSection() {
   const ref = useRef(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 75%', 'end 65%'] });
+  const dotLeft = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   return (
     <section className="sec sec--dark process" ref={ref} aria-label="How a project runs">
       <div className="wrap">
         <p className="eyebrow">Process</p>
         <RiseText text="Four steps, one film" className="h2" />
-        <div className="process__track" aria-hidden="true"><motion.span style={reduced ? undefined : { scaleX: scrollYProgress }} /></div>
+        <div className="process__track" aria-hidden="true"><motion.span className="process__fill" style={reduced ? undefined : { scaleX: scrollYProgress }} />{!reduced && <motion.i className="process__dot" style={{ left: dotLeft }} />}</div>
         <ol className="process__list">
           {STEPS.map((s, i) => (
             <Reveal3D as="li" key={s.n} className="pstep" tilt={34} side={i % 2 ? 14 : -14} lift={60}>

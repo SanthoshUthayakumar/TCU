@@ -106,3 +106,11 @@ h1, h2, h3, .h2 { font-family: var(--font-head); font-weight: 800; letter-spacin
 .wipe--fill, .wipe--fill .wipe__in { height: 100%; }
 .wipe img { width: 100%; }
 body { font-weight: 500; }
+
+/* Scroll-in motion (driven by AutoReveal) and idle loops */
+[data-rv='out'] { opacity: 0; }
+[data-rv='in'] { animation: rvIn 0.85s var(--ease) var(--d, 0ms) backwards; }
+@keyframes rvIn { from { opacity: 0; transform: translateY(34px) scale(0.97); } to { opacity: 1; transform: none; } }
+.eyebrow[data-rv='in']::before { animation: grow 0.9s var(--ease) var(--d, 0ms) backwards; transform-origin: left; }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }

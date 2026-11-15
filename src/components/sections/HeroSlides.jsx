@@ -3,7 +3,6 @@ import { Pause, Play } from 'lucide-react';
 import site from '../../data/site';
 import projects from '../../data/projects';
 import { preload } from '../../utils/media';
-import { pad } from '../../utils/format';
 
 const INTERVAL = 5000;
 
@@ -52,8 +51,6 @@ export default function HeroSlides() {
         <div className="slides__slide">
           <img key={cycle} className={`slides__img ${i % 2 === 0 ? 'zoom-in' : 'zoom-out'}`} src={s.src} alt={s.alt} />
         </div>
-        <span className="slides__count" aria-hidden="true">{pad(i + 1)} / {pad(n)}</span>
-        {s.label && <span className="slides__label">{s.label}</span>}
       </div>
 
       <div className="slides__bar">

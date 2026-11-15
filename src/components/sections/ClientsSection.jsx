@@ -29,7 +29,7 @@ export default function ClientsSection() {
           </>
         )}
       </div>
-      {clients.length > 0 && <Marquee items={clients} base={-2.5} />}
+      {clients.length > 0 && (<><Marquee items={clients} base={-2.5} /><Marquee items={[...clients].reverse()} base={2.5} /></>)}
       <div className="wrap">
         {stats.length > 0 && (
           <ul className="stats">

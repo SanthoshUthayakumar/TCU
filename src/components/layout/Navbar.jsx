@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'framer-motion';
 import { Clapperboard, Home, Images, Layers, Menu, MessageCircle, X } from 'lucide-react';
+import logo from '../../assets/logo.png';
 import BookButton from '../ui/BookButton';
 import SocialLinks from '../sections/SocialLinks';
 import useReducedMotion from '../../hooks/useReducedMotion';
@@ -60,7 +61,7 @@ export default function Navbar() {
     <>
       <motion.header className="nav" animate={{ y: hidden && !open ? '-160%' : '0%' }} transition={{ duration: reduced ? 0 : 0.5, ease: [0.2, 0.8, 0.2, 1] }}>
         <Link to="/" className="nav__brand" aria-label="Tom Cinematic Universe, home">
-          <span className="nav__mark">TCU</span>
+          <img className="nav__logo" src={logo} alt="" width="56" height="56" />
           <span className="nav__word">Tom Cinematic<br />Universe</span>
         </Link>
         <nav className="nav__caps" aria-label="Main" onMouseLeave={() => setHover(null)}>
@@ -69,7 +70,6 @@ export default function Navbar() {
             return (
               <NavLink key={n.to} to={n.to} className={`nav__link ${active ? 'is-active' : ''} ${hover === n.to ? 'is-hover' : ''}`} onMouseEnter={() => setHover(n.to)} onFocus={() => setHover(n.to)} onBlur={() => setHover(null)}>
                 {hover === n.to && <motion.span layoutId="nav-hover" className="nav__hover" transition={{ type: 'spring', stiffness: 520, damping: 36 }} />}
-                <span className="nav__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                 <span className="nav__text">{n.label}</span>
                 {active && <motion.i layoutId="nav-dot" className="nav__dot" aria-hidden="true" />}
               </NavLink>
@@ -102,7 +102,7 @@ export default function Navbar() {
               {[{ to: '/', label: 'Home' }, ...NAV].map((n, i) => (
                 <motion.div key={n.to} initial={reduced ? false : { opacity: 0, y: 60, rotateX: -50 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} transition={{ delay: 0.12 * i + 0.3, duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }} style={{ transformPerspective: 800 }}>
                   <NavLink to={n.to} end={n.to === '/'} className={({ isActive }) => `menu__link ${isActive ? 'is-active' : ''}`}>
-                    <span className="menu__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{n.label}
+                    {n.label}
                   </NavLink>
                 </motion.div>
               ))}

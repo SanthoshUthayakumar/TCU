@@ -14,8 +14,8 @@ export default function AboutSection({ teaser = false }) {
           <p className="eyebrow">About Us</p>
           <RiseText as="h2" text="Hi, I'm TCU." className="h2" />
           {site.ownerRole && <p className="about__role">{site.ownerRole}</p>}
-          <ScrollText text="Every frame tells a story. Every reel creates a feeling." className="about__quote" />
-          {site.aboutText.map((t, i) => <p key={i} className="about__p">{t}</p>)}
+          <ScrollText text="Every frame is composed with intention. Every edit is built for impact." className="about__quote" />
+          
           <ul className="tags" aria-label="What I do">
             {site.disciplines.map((d) => <li key={d}>{d}</li>)}
           </ul>
@@ -26,7 +26,7 @@ export default function AboutSection({ teaser = false }) {
           )}
           {site.location && <p className="about__loc">Based in {site.location}</p>}
           <div className="about__actions">
-            <BookButton size="md">Work with me</BookButton>
+            <BookButton size="md">Work with Us</BookButton>
             {teaser && <Link className="textlink" to="/about">More About Us</Link>}
           </div>
         </div>

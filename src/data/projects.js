@@ -31,14 +31,6 @@ import cat1 from '../assets/images/cat/cat1.webp'
 import cat2 from '../assets/images/cat/cat2.webp'
 import cat3 from '../assets/images/cat/cat3.webp'
 
-import ph1 from '../assets/images/img1.webp';
-import ph2 from '../assets/images/img2.webp';
-import ph3 from '../assets/images/img3.webp';
-import ph4 from '../assets/images/img4.webp';
-import ph5 from '../assets/images/img5.webp';
-import ph6 from '../assets/images/img6.webp';
-import ph7 from '../assets/images/img7.webp';
-import ph8 from '../assets/images/ph-8.svg';
 /*
   ONE FILE DRIVES THE WORK PAGES.
   Every entry below is a PLACEHOLDER (placeholder: true). Replace covers and panels with your files,
@@ -118,7 +110,7 @@ const projects = [
     credits: [{ role: 'PR Work', name: 'Team TCU' }],
   },
   {
-    slug: 'MGM', title: ' Miss Grand Malaysia 2026 PR WORK', client: '', category: 'PR WORKS', year: 2024, role: 'Cinematography',
+    slug: 'MGM', title: ' Miss Grand Malaysia 2026 PR WORK', client: '', category: 'PR WORKS', year: 2024, role: 'Edit and Promotion',
     cover: s3, previewVideo: '', mainVideo: '', embed: '', layout: 'tall', featured: true,
     panels: [
       panel(s3, '4/5', 'Morning.', ''),
