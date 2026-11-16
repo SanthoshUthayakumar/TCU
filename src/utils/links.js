@@ -11,7 +11,7 @@ const toUrl = (v, base) => {
 
 export const instagramProfile = () => (handle(site.instagramHandle) ? `https://www.instagram.com/${handle(site.instagramHandle)}/` : '');
 export const instagramDM = () => (handle(site.instagramHandle) ? `https://ig.me/m/${handle(site.instagramHandle)}` : '');
-/* Turns a public Instagram post/reel link into its official embed URL. Returns '' if it is not a post link. */
+
 export const instagramPermalink = (url) => {
   const m = clean(url).match(/instagram\.com\/(?:[\w.]+\/)?(p|reels?|tv)\/([\w-]+)/i);
   if (!m) return '';
@@ -26,7 +26,7 @@ export const phone = () => (clean(site.phone) ? `tel:${clean(site.phone).replace
 
 export const extProps = (label) => ({ target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${label} (opens in a new tab)` });
 
-/* Profile links for the footer and menu. Only configured networks are returned. */
+
 export function socialList() {
   const list = [
     { id: 'instagram', label: 'Instagram', href: instagramProfile() },

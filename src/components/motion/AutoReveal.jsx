@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Elements that get a staggered rise-in the first time they scroll into view, on every page.
-   Uses a data attribute (never a class) so React re-renders cannot wipe the state. */
 const SELECTOR = [
   '.eyebrow', '.page__sub', '.about__role', '.about__p', '.about__loc', '.about__actions', '.tags li', '.facts > div',
   '.stat__label', '.field', '.form__actions', '.contact__tip', '.contact .direct .btn', '.igcard', '.gtile', '.credits__row',

@@ -6,7 +6,7 @@ import Button from '../ui/Button';
 import { extProps, instagramPermalink, instagramProfile } from '../../utils/links';
 import site from '../../data/site';
 
-/* Accepts a link string or { url, image, caption }. */
+
 const normalize = (p) => {
   const o = typeof p === 'string' ? { url: p } : p || {};
   const link = instagramPermalink(o.url);
@@ -16,7 +16,7 @@ const normalize = (p) => {
 
 function Card({ post, index }) {
   const [failed, setFailed] = useState(false);
-  /* Your own image is always used first. Otherwise we try Instagram's automatic thumbnail. */
+  
   const src = post.image || `${post.link}media/?size=l`;
   return (
     <TiltCard className="igwrap">
@@ -38,7 +38,7 @@ function Card({ post, index }) {
   );
 }
 
-/* Instagram posts as thumbnail cards. Empty list hides the section. */
+
 export default function InstagramSection({ limit = 6 }) {
   const posts = site.instagramPosts.map(normalize).filter(Boolean).slice(0, limit);
   if (!posts.length) return null;

@@ -1,6 +1,6 @@
 import projects from './projects';
 
-/* Every photo in the archive, built from projects.js. Add photos to a project and they appear here. */
+
 const gallery = projects.flatMap((p) => {
   const seen = new Set();
   const all = [{ src: p.cover, ratio: '4/3', alt: `${p.title} cover`, caption: '' }, ...p.panels];

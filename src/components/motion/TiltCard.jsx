@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Hover 3D tilt that follows the pointer. Touch devices and reduced motion get a flat card. */
 export default function TiltCard({ as: Tag = 'div', max = 7, className = '', children, ...rest }) {
   const reduced = useReducedMotion();
   const mx = useMotionValue(0);

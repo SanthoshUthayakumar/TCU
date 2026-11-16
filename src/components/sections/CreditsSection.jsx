@@ -1,4 +1,3 @@
-/* Credits list. Empty credits render nothing. */
 export default function CreditsSection({ credits = [], title = 'Credits', bare = false }) {
   if (!credits.length) return null;
   const list = (

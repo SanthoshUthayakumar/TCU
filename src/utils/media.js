@@ -7,7 +7,7 @@ export function preload(src) {
   i.src = src;
 }
 
-/* Turn a YouTube or Vimeo link into an embeddable URL. Returns '' if unknown. */
+
 export function embedUrl(url = '') {
   if (!url) return '';
   const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/i);

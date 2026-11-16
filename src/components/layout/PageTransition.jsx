@@ -8,7 +8,6 @@ const rank = (p) => {
 };
 const depth = (p) => p.split('/').filter(Boolean).length;
 
-/* Direction: +1 when the next page is later in the menu order, -1 when earlier. */
 export function useRouteDirection(pathname) {
   const prev = useRef(pathname);
   const dir = useRef(1);

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Two lines of oversized text that slide in opposite directions as the page scrolls past them. */
+
 export default function ScrollBand({ items }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();

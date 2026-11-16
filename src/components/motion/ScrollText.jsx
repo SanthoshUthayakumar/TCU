@@ -7,7 +7,7 @@ function Word({ w, p, a, b }) {
   return <motion.span style={{ opacity }}>{w} </motion.span>;
 }
 
-/* Scroll-linked text: words fill in one by one as the paragraph travels up the screen. */
+
 export default function ScrollText({ text, as: Tag = 'p', className = '' }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();

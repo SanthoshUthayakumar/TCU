@@ -1,4 +1,3 @@
-/* Reads the motion tokens from tokens.css so JS and CSS share one easing curve and three durations. */
 let cache;
 export function tokens() {
   if (cache) return cache;

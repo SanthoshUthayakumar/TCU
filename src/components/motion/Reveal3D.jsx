@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Scroll-linked 3D entrance: the block tips up from the floor, travels forward in depth and fades in. */
 export default function Reveal3D({ as: Tag = 'div', tilt = 22, side = 0, depth = -160, lift = 70, className = '', children, ...rest }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();

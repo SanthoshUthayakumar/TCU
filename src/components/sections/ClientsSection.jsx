@@ -7,7 +7,6 @@ import RiseText from '../motion/RiseText';
 import projects from '../../data/projects';
 import site from '../../data/site';
 
-/* Client names scroll sideways, the numbers count up, and one button opens the gallery. */
 export default function ClientsSection() {
   const clients = site.clients.filter(Boolean);
   const s = site.stats;

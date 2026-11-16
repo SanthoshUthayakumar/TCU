@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-/* Shown on every page except Home. Always returns to the home page. */
 export default function BackButton() {
   const { pathname } = useLocation();
   if (pathname === '/') return null;

@@ -5,14 +5,14 @@ import Button from '../ui/Button';
 const ICONS = { instagram: Instagram, facebook: Facebook, youtube: Youtube, linkedin: Linkedin, x: Twitter };
 const GLYPH = { vimeo: 'Vi', behance: 'Be', tiktok: 'Tk' };
 
-/* Lucide has no Vimeo, Behance or TikTok mark, so those get a lettering badge. */
+
 export function SocialIcon({ id, size = 20 }) {
   const Icon = ICONS[id];
   if (Icon) return <Icon size={size} strokeWidth={2} aria-hidden="true" />;
   return <span className="social__glyph" aria-hidden="true">{GLYPH[id] || '*'}</span>;
 }
 
-/* variant: 'chips' (icon + name), 'icons' (icon only, tooltip), 'tiles' (big icon over name) */
+
 export default function SocialLinks({ className = '', variant = 'chips' }) {
   const list = socialList();
   if (!list.length) return null;
@@ -31,7 +31,7 @@ export default function SocialLinks({ className = '', variant = 'chips' }) {
   );
 }
 
-/* Large direct-message buttons. Each one only renders when its value is set in site.js. */
+
 export function DirectButtons({ size = 'lg', message, className = '' }) {
   const wa = whatsapp(message);
   const ig = instagramDM();

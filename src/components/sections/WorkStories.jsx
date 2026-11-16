@@ -7,7 +7,6 @@ import RiseText from '../motion/RiseText';
 import useReducedMotion from '../../hooks/useReducedMotion';
 import projects from '../../data/projects';
 
-/* One card pins to the screen; as the next one slides over it, the card underneath tips back in 3D. */
 function StackCard({ p, i, n }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();

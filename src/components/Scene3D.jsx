@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-/* A tunnel (hero only) of thin film-frame outlines. The camera travels down it and banks as the page scrolls.
-   Flat line colour only: no gradients, no fog, no textures. */
+
 export default function Scene3D() {
   const ref = useRef(null);
   useEffect(() => {

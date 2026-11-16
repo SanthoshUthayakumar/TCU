@@ -23,7 +23,7 @@ const DOCK = [
 ];
 const isOn = (path, to) => (to === '/' ? path === '/' : path === to || path.startsWith(`${to}/`));
 
-/* Menu button wrapped in a ring that fills as the page scrolls. */
+
 function MenuRing({ open, onClick }) {
   const { scrollYProgress } = useScroll();
   const pathLength = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.2 });
@@ -38,8 +38,6 @@ function MenuRing({ open, onClick }) {
   );
 }
 
-/* Desktop: three separate floating pieces (brand, numbered capsule with a roaming highlight, action ring).
-   Mobile: brand + menu ring at the top, and a dock at the bottom whose active tab expands. */
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);

@@ -1,6 +1,6 @@
 import { embedUrl } from '../../utils/media';
 
-/* Film player: file video, YouTube/Vimeo embed, or a clearly marked placeholder. Never autoplays with sound. */
+
 export default function VideoPlayer({ src, embed, poster, title }) {
   const e = embedUrl(embed);
   if (src) {

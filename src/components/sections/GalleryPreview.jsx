@@ -8,8 +8,6 @@ import useMediaQuery from '../../hooks/useMediaQuery';
 import useReducedMotion from '../../hooks/useReducedMotion';
 import gallery from '../../data/gallery';
 
-/* Desktop: the section pins and the photo rail travels sideways as you scroll, each frame angled in depth.
-   Mobile and reduced motion: a plain swipeable row. */
 export default function GalleryPreview() {
   const items = gallery.slice(0, 6);
   const wide = useMediaQuery('(min-width: 900px)');

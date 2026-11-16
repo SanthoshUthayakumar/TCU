@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* The wrapped control leans toward the pointer. */
 export default function Magnetic({ children, strength = 0.3 }) {
   const reduced = useReducedMotion();
   const x = useSpring(useMotionValue(0), { stiffness: 220, damping: 16 });

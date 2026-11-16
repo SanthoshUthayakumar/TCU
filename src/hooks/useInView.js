@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-/* Returns [ref, inView]. With once=true it flips to true a single time and stops observing. */
+
 export default function useInView({ once = true, margin = '0px', threshold = 0.2 } = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);

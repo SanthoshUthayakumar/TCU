@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Image reveal: a shutter wipes open while the picture settles from a slight zoom. */
+
 export default function Wipe({ children, className = '' }) {
   const reduced = useReducedMotion();
   if (reduced) return <div className={`wipe ${className}`.trim()}>{children}</div>;

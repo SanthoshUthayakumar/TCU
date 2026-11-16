@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Headline: each word rises out of a mask when it scrolls into view. */
 export default function RiseText({ text, as: Tag = 'h2', className = '', delay = 0 }) {
   const reduced = useReducedMotion();
   if (reduced) return <Tag className={className}>{text}</Tag>;

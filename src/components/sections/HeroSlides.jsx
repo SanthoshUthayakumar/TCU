@@ -6,11 +6,6 @@ import { preload } from '../../utils/media';
 
 const INTERVAL = 5000;
 
-/*
-  Slideshow, changes every 5 seconds.
-  Each photo slowly zooms in, the next one zooms out (CSS, so pause really pauses it).
-  No transition between photos. Reduced motion turns the zoom off (global rule in reset.css).
-*/
 export default function HeroSlides() {
   const slides = useMemo(() => {
     if (site.heroSlides.length) return site.heroSlides.slice(0, 8);

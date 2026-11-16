@@ -1,4 +1,3 @@
-/* One shared handle on the Lenis instance so routing and buttons scroll the same way the wheel does. */
 let lenis = null;
 export const setLenis = (l) => { lenis = l; };
 export function scrollToTop(immediate = false) {

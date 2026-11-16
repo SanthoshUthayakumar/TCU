@@ -31,21 +31,7 @@ import cat1 from '../assets/images/cat/cat1.webp'
 import cat2 from '../assets/images/cat/cat2.webp'
 import cat3 from '../assets/images/cat/cat3.webp'
 
-/*
-  ONE FILE DRIVES THE WORK PAGES.
-  Every entry below is a PLACEHOLDER (placeholder: true). Replace covers and panels with your files,
-  then delete `placeholder: true`.
 
-  Fields: slug, title, client, category, year, role, cover, previewVideo, mainVideo | embed,
-          panels[{ src, ratio, caption, alt, bts? }], credits[{ role, name }], layout, featured
-  layout: 'splash' (full width) | 'wide' (letterbox) | 'pair' (half) | 'tall' (portrait)
-  embed: a YouTube or Vimeo link. mainVideo: an mp4/webm URL or imported file.
-
-  HOW TO ADD IMAGES: import the file at the top, then use the import name directly,
-  e.g. cover: myPhoto, and panel(myPhoto, '3/2', 'Caption', 'Alt text').
-*/
-
-// panel(image, ratio, caption, alt, isBehindTheScenes)
 const panel = (src, ratio, caption, alt, bts = false) => ({ src, ratio, caption, alt, bts });
 
 export const CATEGORIES = ['Candid', 'Commercials', 'Events', 'PR WORKS', ''];
@@ -121,7 +107,7 @@ const projects = [
   },
 ];
 
-/* Short text for the "slide by slide" section on the home page. [Placeholder] copy: replace with your own. */
+
 const SUMMARIES = {
   coastline: '[Placeholder] One or two sentences on what this film is about and what you shot.',
   'night-market': '[Placeholder] A photo story: where it was made and what it shows.',

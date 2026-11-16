@@ -1,4 +1,3 @@
-/* Edit freely. `front` is the short promise, `back` lists what the work involves. */
 const services = [
   { id: 'photography', name: 'Photography', front: 'Still frames with a point of view.', back: ['Portraits and product', 'Locations and travel', 'Edited, delivered files'] },
   { id: 'commercials', name: 'Commercials', front: 'Spots built around one clear idea.', back: ['Treatment and boards', 'Crew and kit', 'Cut-downs for each platform'] },

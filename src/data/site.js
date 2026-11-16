@@ -17,14 +17,7 @@ import r4 from '../assets/images/reel/r4.jpg';
 import r5 from '../assets/images/reel/r5.jpg';
 import r6 from '../assets/images/reel/r6.jpg';
 
-/*
-  EDIT ME. Every value here is optional.
-  Empty strings hide the matching link or section. Nothing is invented for you.
-  - whatsappNumber: international digits only, no + or spaces (example shape: 15551234567)
-  - instagramHandle: without the @
-  - youtube, facebook, linkedin, behance, vimeo: full profile URL
-  - x, tiktok: handle or full URL
-*/
+
 const site = {
   name: 'Tom Cinematic Universe',
   short: 'TCU',
@@ -44,16 +37,15 @@ const site = {
   tiktok: '',
   location: 'Chennai & all over Tamilnadu',
 
-  // Hero: a muted looping video (mp4/webm URL or imported file). Empty shows the poster.
+  
   heroVideo: '',
   heroPoster,
-  // Clients marquee + numbers on the home page. Replace the placeholders; an empty list hides the marquee.
+  
   clients: ['NEXA FUSION', 'BK CATERING', 'BLACK BAND', 'TRAPFITT', 'ATMAN EVENTS', 'KRISHNA CATERING', 'JUSSSWAP', 'E2R FOOD ZONE','',''],
-  // clients: leave '' to count the list above. events: number of events covered (0 hides it).
+  
   stats: { clients: '', events: 50, views:50},
   statsArePlaceholder: true,
-  // Hero slideshow (changes every 5 seconds). Leave empty to use the covers of your featured projects.
-  // Format: [{ src: importedImage, alt: 'Describe the photo', label: 'Short caption' }]
+  
   heroSlides: [{ src:heroPoster, alt: 'Cm Vijay Anna ', label: '@ TVK campaign '},{ src: slidehero7, alt: 'iSai', label: '@ OM Audio Launch '},{ src: slidehero1, alt: 'Vettri Maaran', label: '@ Mandaadi Success Meet '},
     { src: slidehero8, alt: 'Sai pallavi', label: '@ OM Audio Launch '},
     { src:slidehero5, alt: ' U1 ', label: '@ U1 Concert '},{ src: slidehero9, alt: 'Dhanush', label: '@ Om Audio Launch '},{ src:slidehero3, alt: ' EPS ', label: '@ AIADMK campaign '},{ src:slidehero2, alt: ' Actor Soori ', label: '@ Mandaadi Success Meet '},
@@ -68,7 +60,7 @@ const site = {
     {url: 'https://www.instagram.com/reel/DejpLeUhoBt/?utm_source=ig_web_copy_link&psln=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==', image: r5, caption: 'Sri Krishna Caterings Promotion' },
     {url: 'https://www.instagram.com/reel/DcbO9xwPTbX/?utm_source=ig_web_copy_link&mdxt=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==', image: r6, caption: 'Trapfitt Promotion' },
 ],
-  // About me: replace the placeholders. Empty `facts` hides the facts list.
+  
   
   
   ownerName: 'Tom',
@@ -77,7 +69,7 @@ const site = {
     '',
     '',
   ],
-  facts: [], // [{ label: 'Based in', value: 'City' }]
+  facts: [], 
   aboutImage,
   aboutImageIsPlaceholder: true,
 

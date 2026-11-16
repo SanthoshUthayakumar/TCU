@@ -4,7 +4,7 @@ import useReducedMotion from '../../hooks/useReducedMotion';
 import useScrollVelocity from '../../hooks/useScrollVelocity';
 import { wrap } from '../../utils/motion';
 
-/* Ticker: speed follows scroll velocity, direction follows scroll direction. */
+
 export default function Marquee({ items, base = -3 }) {
   const reduced = useReducedMotion();
   const baseX = useMotionValue(0);

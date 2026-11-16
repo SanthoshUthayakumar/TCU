@@ -3,7 +3,6 @@ import { animate } from 'framer-motion';
 import useInView from '../../hooks/useInView';
 import useReducedMotion from '../../hooks/useReducedMotion';
 
-/* Counts from 0 to `value` once, when it scrolls into view. */
 export default function CountUp({ value, suffix = '', duration = 1.6 }) {
   const reduced = useReducedMotion();
   const [ref, inView] = useInView({ once: true, threshold: 0.4 });
